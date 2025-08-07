@@ -48,10 +48,11 @@ const Index = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Hope you enjoy my little corner of the internet! :)
+                Hope you enjoy my little corner of the internt! :)
               </p>
               
-              
+            
+            </div>
             
             {/* Character section */}
             <div className={`flex justify-center lg:justify-start ${showCharacter ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
