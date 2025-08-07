@@ -8,35 +8,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 88 76% 95%;
+    --foreground: 88 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 88 30% 98%;
+    --card-foreground: 88 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 88 30% 98%;
+    --popover-foreground: 88 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 88 45% 45%;
+    --primary-foreground: 88 30% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 78 60% 85%;
+    --secondary-foreground: 88 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 88 20% 90%;
+    --muted-foreground: 88 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 68 55% 75%;
+    --accent-foreground: 88 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 88 20% 85%;
+    --input: 88 20% 90%;
+    --ring: 88 45% 45%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Portfolio specific colors */
+    --character-yellow: 68 80% 75%;
+    --character-green: 88 45% 55%;
+    --soft-glow: 88 50% 85%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--character-yellow)), hsl(var(--character-green)));
+    --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--soft-glow)));
+    
+    /* Animation values */
+    --bounce-duration: 2s;
+    --typing-duration: 1.5s;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +67,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 88 15% 8%;
+    --foreground: 88 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 88 15% 12%;
+    --card-foreground: 88 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 88 15% 12%;
+    --popover-foreground: 88 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 88 50% 65%;
+    --primary-foreground: 88 15% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 88 10% 20%;
+    --secondary-foreground: 88 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 88 10% 18%;
+    --muted-foreground: 88 8% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 68 40% 50%;
+    --accent-foreground: 88 20% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 88 10% 25%;
+    --input: 88 10% 18%;
+    --ring: 88 50% 65%;
+    
+    /* Dark mode portfolio colors */
+    --character-yellow: 68 70% 65%;
+    --character-green: 88 40% 45%;
+    --soft-glow: 88 20% 25%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--character-yellow)), hsl(var(--character-green)));
+    --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--soft-glow)));
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +119,38 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-soft);
+    min-height: 100vh;
   }
+}
+
+@layer utilities {
+  .typing-animation {
+    animation: typing var(--typing-duration) ease-in-out infinite;
+  }
+  
+  .bounce-gentle {
+    animation: bounce-gentle var(--bounce-duration) ease-in-out infinite;
+  }
+  
+  .character-glow {
+    box-shadow: 0 0 30px hsl(var(--character-yellow) / 0.3);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes typing {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
