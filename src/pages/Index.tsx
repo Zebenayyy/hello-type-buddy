@@ -48,10 +48,19 @@ const Index = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Hope you enjoy my little corner of the internet! :)
+                I'm a creative developer who loves bringing ideas to life through code. 
+                Let's build something amazing together!
               </p>
               
-              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  View My Work
+                </Button>
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5">
+                  Get In Touch
+                </Button>
+              </div>
+            </div>
             
             {/* Character section */}
             <div className={`flex justify-center lg:justify-start ${showCharacter ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
