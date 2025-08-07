@@ -30,7 +30,7 @@ const Index = () => {
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
         <div className="max-w-6xl mx-auto">
           {/* Main content grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Welcome content */}
             <div className={`text-center lg:text-left ${showContent ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -63,8 +63,8 @@ const Index = () => {
             </div>
             
             {/* Character section */}
-            <div className={`flex justify-center lg:justify-end ${showCharacter ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
-              <CharacterSection className="lg:mr-8" />
+            <div className={`flex justify-center lg:justify-start ${showCharacter ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
+              <CharacterSection className="lg:ml-4" />
             </div>
             
           </div>
