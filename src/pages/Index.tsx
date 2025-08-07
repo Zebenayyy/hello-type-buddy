@@ -82,6 +82,46 @@ const Index = () => {
           <div className="w-8 h-8 bg-gradient-to-br from-character-yellow to-character-green rounded-full animate-pulse" />
         </div>
       </div>
+      
+      {/* About Me Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              About <span className="bg-gradient-to-r from-character-primary to-character-accent bg-clip-text text-transparent">Me</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-character-primary to-character-accent mx-auto mb-8"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Hello! I'm a creative developer with a passion for bringing ideas to life through code. 
+                I love the intersection of design and technology, where beautiful interfaces meet powerful functionality.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                With years of experience in modern web technologies, I specialize in creating responsive, 
+                user-friendly applications that make a real impact. I believe in writing clean, maintainable code 
+                and always staying curious about new technologies.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-8">
+                {['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Next.js', 'Python'].map((skill) => (
+                  <span key={skill} className="px-4 py-2 bg-card text-card-foreground rounded-full text-sm font-medium border border-border">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-80 h-80 bg-gradient-to-br from-character-primary/20 to-character-accent/20 rounded-3xl flex items-center justify-center">
+                <div className="w-64 h-64 bg-card rounded-2xl shadow-lg flex items-center justify-center">
+                  <span className="text-6xl">👨‍💻</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
