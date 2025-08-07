@@ -14,7 +14,7 @@ const CharacterSection: React.FC<CharacterSectionProps> = ({ className = "" }) =
           <img 
             src="/lovable-uploads/040a7602-c58c-4496-9ec0-b04c7c0b305e.png" 
             alt="Friendly character typing on laptop"
-            className="w-32 h-32 md:w-40 md:h-40 object-contain animate-bounce-gentle"
+            className="w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 object-contain animate-bounce-gentle"
           />
         </div>
         
@@ -25,10 +25,6 @@ const CharacterSection: React.FC<CharacterSectionProps> = ({ className = "" }) =
         />
         
         {/* Floating typing indicators */}
-        <div className="absolute -top-2 -right-2 text-sm text-primary animate-typing">
-          💻
-        </div>
-        
         <div className="absolute -bottom-1 -left-2 text-xs text-muted-foreground animate-typing" style={{animationDelay: '0.5s'}}>
           ✨
         </div>
