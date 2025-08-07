@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import TypingEffect from '@/components/TypingEffect';
 import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
@@ -54,16 +53,12 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/projects">
-                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
-                    View My Work
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5">
-                    Get In Touch
-                  </Button>
-                </Link>
+                <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  View My Work
+                </Button>
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5">
+                  Get In Touch
+                </Button>
               </div>
             </div>
             
