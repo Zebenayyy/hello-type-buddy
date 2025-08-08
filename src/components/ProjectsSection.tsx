@@ -1,41 +1,47 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
-const projects = [
+interface ProjectsSectionProps {
+  className?: string;
+}
+
+const demoProjects = [
   {
-    title: 'Project One',
-    description:
-      'A short description about your awesome project. What problem does it solve? What tech did you use?',
+    title: "Project One",
+    description: "A cool project you worked on. Briefly describe what it does and your role.",
   },
   {
-    title: 'Project Two',
-    description:
-      'Highlight key features and outcomes. Keep it concise but compelling for readers.',
+    title: "Project Two",
+    description: "Another project with a short description to showcase your skills and impact.",
   },
   {
-    title: 'Project Three',
-    description:
-      'Another project you’re proud of. You can link out or add images later.',
+    title: "Project Three",
+    description: "Highlight interesting tech, features, or outcomes achieved in this project.",
   },
 ];
 
-const ProjectsSection = () => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ className }) => {
   return (
-    <section id="projects" className="scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-4 py-20 lg:py-28">
-        <header className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h2>
-          <p className="text-muted-foreground mt-2">Some things I’ve built recently.</p>
-        </header>
-
+    <section id="projects" className={cn("py-16 md:py-24 bg-background", className)} aria-label="Projects section">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">Projects</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <Card key={p.title} className="border-border bg-card">
+          {demoProjects.map((p, idx) => (
+            <Card key={idx} className="hover-scale">
               <CardHeader>
-                <CardTitle className="text-foreground">{p.title}</CardTitle>
+                <CardTitle className="text-xl">{p.title}</CardTitle>
+                <CardDescription>{p.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{p.description}</p>
+                <div className="aspect-[16/9] w-full rounded-md overflow-hidden ring-1 ring-border bg-muted">
+                  <img
+                    src="/placeholder.svg"
+                    alt={`Project screenshot - ${p.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </CardContent>
             </Card>
           ))}

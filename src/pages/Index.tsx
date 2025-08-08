@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TypingEffect from '@/components/TypingEffect';
 import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
-import TopNav from '@/components/TopNav';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
@@ -31,8 +30,7 @@ const Index = () => {
       <div className="absolute top-20 left-10 w-20 h-20 bg-character-yellow/10 rounded-full blur-xl animate-bounce-gentle" />
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-character-green/10 rounded-full blur-xl animate-bounce-gentle" style={{animationDelay: '1s'}} />
       
-      <TopNav />
-      <section id="welcome" className="relative z-10 min-h-screen flex items-center justify-center px-4">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
         <div className="max-w-6xl mx-auto">
           {/* Main content grid */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -53,22 +51,10 @@ const Index = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                I'm a creative developer who loves bringing ideas to life through code. 
-                Let's build something amazing together!
+                Hope you enjoy my little corner of the internt! :)
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href="#projects">
-                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
-                    View My Work
-                  </Button>
-                </a>
-                <a href="#contact">
-                  <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5">
-                    Get In Touch
-                  </Button>
-                </a>
-              </div>
+            
             </div>
             
             {/* Character section */}
@@ -78,12 +64,15 @@ const Index = () => {
             
           </div>
         </div>
-      </section>
+      </div>
       
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
-      
+      {/* Sections */}
+      <main id="main-content" className="relative z-10">
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
+
       {/* Corner character indicator */}
       <div className="fixed bottom-6 right-6 z-20">
         <div className="bg-card/80 backdrop-blur-sm rounded-full p-3 shadow-lg border border-border/50">
