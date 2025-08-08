@@ -1,17 +1,41 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { ArrowLeft, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom"; // or your routing library
+import { 
+  ArrowLeft, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Github, 
+  Linkedin, 
+  Twitter 
+} from "lucide-react";
 
-const Contact = () => {
+interface ContactSectionProps {
+  className?: string;
+}
+
+const Contact = ({ className }: ContactSectionProps) => {
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message sent!",
+      description: "Thank you for your message. I'll get back to you soon.",
+    });
+  };
+
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className={cn("min-h-screen relative overflow-hidden", className)}>
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-background to-green-500/10" />
       
       <div className="relative z-10 min-h-screen px-4 py-8">
         <div className="max-w-4xl mx-auto">
@@ -28,7 +52,9 @@ const Contact = () => {
           {/* Page Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">Get In Touch</span>
+              <span className="bg-gradient-to-r from-green-600 to-yellow-600 bg-clip-text text-transparent">
+                Get In Touch
+              </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Let's discuss your next project or just say hello!
@@ -44,26 +70,26 @@ const Contact = () => {
                 <CardDescription>I'll get back to you within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="firstName">First Name</Label>
-                      <Input id="firstName" placeholder="John" />
+                      <Input id="firstName" placeholder="John" required />
                     </div>
                     <div>
                       <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" placeholder="Doe" />
+                      <Input id="lastName" placeholder="Doe" required />
                     </div>
                   </div>
                   
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" />
+                    <Input id="email" type="email" placeholder="john@example.com" required />
                   </div>
                   
                   <div>
                     <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="Project Discussion" />
+                    <Input id="subject" placeholder="Project Discussion" required />
                   </div>
                   
                   <div>
@@ -72,10 +98,14 @@ const Contact = () => {
                       id="message" 
                       placeholder="Tell me about your project or just say hi!" 
                       className="min-h-[120px]"
+                      required
                     />
                   </div>
                   
-                  <Button className="w-full bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  <Button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-green-600 to-yellow-600 text-white font-semibold hover:shadow-lg transition-all duration-300"
+                  >
                     Send Message
                   </Button>
                 </form>
@@ -136,7 +166,7 @@ const Contact = () => {
                 <CardContent className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Status</span>
-                    <span className="text-sm font-medium text-character-green">Available for new projects</span>
+                    <span className="text-sm font-medium text-green-600">Available for new projects</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Response time</span>
