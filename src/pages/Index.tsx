@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import TypingEffect from '@/components/TypingEffect';
 import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
+import AboutSection from '@/components/AboutSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
   const [showCharacter, setShowCharacter] = useState(false);
@@ -63,6 +66,13 @@ const Index = () => {
         </div>
       </div>
       
+      {/* Sections */}
+      <main id="main-content" className="relative z-10">
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
+
       {/* Corner character indicator */}
       <div className="fixed bottom-6 right-6 z-20">
         <div className="bg-card/80 backdrop-blur-sm rounded-full p-3 shadow-lg border border-border/50">
