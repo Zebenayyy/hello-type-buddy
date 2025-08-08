@@ -1,136 +1,48 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Github, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "🛒",
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates",
-      tech: ["React", "TypeScript", "Supabase", "Tailwind"],
-      image: "📋",
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Beautiful weather dashboard with location-based forecasts",
-      tech: ["React", "OpenWeather API", "Chart.js"],
-      image: "🌤️",
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Social Media Analytics",
-      description: "Analytics dashboard for social media performance tracking",
-      tech: ["Next.js", "D3.js", "MongoDB"],
-      image: "📊",
-      github: "#",
-      demo: "#"
-    }
-  ];
+const projects = [
+  {
+    title: 'Project One',
+    description:
+      'A short description about your awesome project. What problem does it solve? What tech did you use?',
+  },
+  {
+    title: 'Project Two',
+    description:
+      'Highlight key features and outcomes. Keep it concise but compelling for readers.',
+  },
+  {
+    title: 'Project Three',
+    description:
+      'Another project you’re proud of. You can link out or add images later.',
+  },
+];
 
+const ProjectsSection = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
-      
-      <div className="relative z-10 min-h-screen px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link to="/">
-              <Button variant="ghost" className="mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+    <section id="projects" className="scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-4 py-20 lg:py-28">
+        <header className="mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h2>
+          <p className="text-muted-foreground mt-2">Some things I’ve built recently.</p>
+        </header>
 
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">My Projects</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my work and the technologies I love to use
-            </p>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {projects.map((project, index) => (
-              <Card key={index} className="animate-fade-in hover:shadow-lg transition-shadow duration-300" 
-                    style={{animationDelay: `${index * 0.1}s`}}>
-                <CardHeader>
-                  <div className="text-4xl mb-4 text-center">{project.image}</div>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {/* Tech Stack */}
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2">Technologies</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.map((tech, techIndex) => (
-                          <span key={techIndex} 
-                                className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center">
-            <Card className="max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.6s'}}>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p) => (
+            <Card key={p.title} className="border-border bg-card">
               <CardHeader>
-                <CardTitle className="text-2xl">Interested in Working Together?</CardTitle>
-                <CardDescription>
-                  I'm always open to discussing new opportunities and exciting projects
-                </CardDescription>
+                <CardTitle className="text-foreground">{p.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <Link to="/contact">
-                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
-                    Get In Touch
-                  </Button>
-                </Link>
+                <p className="text-muted-foreground">{p.description}</p>
               </CardContent>
             </Card>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Projects;
+export default ProjectsSection;
