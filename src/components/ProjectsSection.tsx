@@ -28,7 +28,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ className }) => {
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Projects</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {demoProjects.map((p, idx) => (
-            <Card key={idx} className="hover-scale">
+            <Card key={idx} className="transition-shadow hover:shadow-lg border-border/60 hover:border-primary/40">
               <CardHeader>
                 <CardTitle className="text-xl">{p.title}</CardTitle>
                 <CardDescription>{p.description}</CardDescription>
