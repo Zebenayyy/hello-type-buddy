@@ -25,14 +25,14 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10 -z-10" />
       
       {/* Floating decorative elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-character-yellow/10 rounded-full blur-xl animate-bounce-gentle" />
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-character-green/10 rounded-full blur-xl animate-bounce-gentle" style={{animationDelay: '1s'}} />
       
       <TopNav />
-      <section id="welcome" className="relative z-10 min-h-screen flex items-center justify-center px-4">
+      <section id="welcome" className="relative z-10 min-h-[80vh] flex items-center justify-center px-4 pb-20">
         <div className="max-w-6xl mx-auto">
           {/* Main content grid */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
