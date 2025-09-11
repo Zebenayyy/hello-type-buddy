@@ -23,7 +23,7 @@ const AboutSection = () => {
                 <div className="relative">
                   <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl character-glow bg-gradient-to-br from-character-yellow/20 to-character-green/20 flex items-center justify-center">
                     <img
-                      src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
+                      src="/lovable-uploads/040a7602-c58c-4496-9ec0-b04c7c0b305e.png"
                       alt="Your profile photo"
                       className="w-full h-full object-cover"
                       loading="lazy"
