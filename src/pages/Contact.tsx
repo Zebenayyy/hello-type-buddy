@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-character-blue/5 via-background to-character-blue-dark/10" />
       
       <div className="relative z-10 min-h-screen px-4 py-8">
         <div className="max-w-4xl mx-auto">
@@ -75,7 +75,7 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <Button className="w-full bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  <Button className="w-full bg-gradient-to-r from-character-blue-dark to-character-blue text-white font-semibold hover:shadow-lg transition-all duration-300">
                     Send Message
                   </Button>
                 </form>
@@ -136,7 +136,7 @@ const Contact = () => {
                 <CardContent className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Status</span>
-                    <span className="text-sm font-medium text-character-green">Available for new projects</span>
+                    <span className="text-sm font-medium text-character-blue-dark">Available for new projects</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Response time</span>

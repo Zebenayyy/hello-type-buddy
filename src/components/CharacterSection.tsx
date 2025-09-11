@@ -10,7 +10,7 @@ const CharacterSection: React.FC<CharacterSectionProps> = ({ className = "" }) =
     <div className={`relative ${className}`}>
       {/* Character container */}
       <div className="relative">
-        <div className="character-glow rounded-full p-4 bg-gradient-to-br from-character-yellow/20 to-character-green/20 backdrop-blur-sm">
+        <div className="character-glow rounded-full p-4 bg-gradient-to-br from-character-blue/20 to-character-blue-dark/20 backdrop-blur-sm">
           <img 
             src="src/components/ChatGPT Image Sep 11, 2025, 11_16_20 AM.png" 
             alt="Friendly character typing on laptop"
