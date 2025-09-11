@@ -28,7 +28,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="scroll-mt-24 relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-character-blue-dark/5 to-background -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-character-green/5 to-background -z-10" />
       
       <div className="max-w-6xl mx-auto px-4 py-20 lg:py-32">
         <header className="text-center mb-16">
@@ -45,12 +45,12 @@ const ProjectsSection = () => {
               className="group bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
               {/* Project preview area */}
-              <div className="h-48 bg-gradient-to-br from-character-blue/20 to-character-blue-dark/20 relative overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-character-yellow/20 to-character-green/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300" />
                 <div className="absolute top-4 right-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    project.status === 'Live' ? 'bg-character-blue-dark text-white' :
-                    project.status === 'In Progress' ? 'bg-character-blue text-white' :
+                    project.status === 'Live' ? 'bg-character-green text-white' :
+                    project.status === 'In Progress' ? 'bg-character-yellow text-white' :
                     'bg-primary/20 text-primary'
                   }`}>
                     {project.status}

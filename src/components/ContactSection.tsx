@@ -38,7 +38,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="scroll-mt-24 relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-character-blue/5 to-background -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-character-yellow/5 to-background -z-10" />
       
       <div className="max-w-6xl mx-auto px-4 py-20 lg:py-32">
         <header className="text-center mb-16">
@@ -125,7 +125,7 @@ const ContactSection = () => {
                   <Button 
                     type="submit" 
                     size="lg"
-                    className="bg-gradient-to-r from-character-blue-dark to-character-blue text-white font-semibold hover:shadow-lg transition-all duration-300 px-8"
+                    className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8"
                   >
                     <Send className="w-4 h-4 mr-2" />
                     Send Message

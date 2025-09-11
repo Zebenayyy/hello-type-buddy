@@ -38,11 +38,11 @@ All colors MUST be HSL.
 
     --radius: 1rem;
 
-    /* Portfolio specific colors - Blue character theme */
-    --character-blue: 200 75% 75%;
-    --character-blue-dark: 210 65% 55%;
-    --soft-glow: 200 50% 85%;
-    --gradient-primary: linear-gradient(135deg, hsl(var(--character-blue)), hsl(var(--character-blue-dark)));
+    /* Portfolio specific colors */
+    --character-yellow: 68 80% 75%;
+    --character-green: 88 45% 55%;
+    --soft-glow: 88 50% 85%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--character-yellow)), hsl(var(--character-green)));
     --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--soft-glow)));
     
     /* Animation values */
@@ -95,11 +95,11 @@ All colors MUST be HSL.
     --input: 88 10% 18%;
     --ring: 88 50% 65%;
     
-    /* Dark mode portfolio colors - Blue character theme */
-    --character-blue: 200 65% 65%;
-    --character-blue-dark: 210 55% 45%;
-    --soft-glow: 200 20% 25%;
-    --gradient-primary: linear-gradient(135deg, hsl(var(--character-blue)), hsl(var(--character-blue-dark)));
+    /* Dark mode portfolio colors */
+    --character-yellow: 68 70% 65%;
+    --character-green: 88 40% 45%;
+    --soft-glow: 88 20% 25%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--character-yellow)), hsl(var(--character-green)));
     --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--soft-glow)));
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -138,7 +138,7 @@ All colors MUST be HSL.
   }
   
   .character-glow {
-    box-shadow: 0 0 30px hsl(var(--character-blue) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--character-yellow) / 0.3);
   }
   
   .text-gradient {

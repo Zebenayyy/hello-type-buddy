@@ -25,11 +25,11 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-blue/5 via-background to-character-blue-dark/10 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10 -z-10" />
       
       {/* Floating decorative elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-character-blue/10 rounded-full blur-xl animate-bounce-gentle" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-character-blue-dark/10 rounded-full blur-xl animate-bounce-gentle" style={{animationDelay: '1s'}} />
+      <div className="absolute top-20 left-10 w-20 h-20 bg-character-yellow/10 rounded-full blur-xl animate-bounce-gentle" />
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-character-green/10 rounded-full blur-xl animate-bounce-gentle" style={{animationDelay: '1s'}} />
       
       <TopNav />
       <section id="welcome" className="relative z-10 min-h-[80vh] flex items-center justify-center px-4 pb-20">
@@ -59,7 +59,7 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a href="#projects">
-                  <Button size="lg" className="bg-gradient-to-r from-character-blue-dark to-character-blue text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
                     View My Work
                   </Button>
                 </a>
@@ -86,8 +86,12 @@ const Index = () => {
       
       {/* Corner character indicator */}
       <div className="fixed bottom-6 right-6 z-20">
-        <div className="bg-card/80 backdrop-blur-sm rounded-full p-3 shadow-lg border border-border/50">
-          <div className="w-8 h-8 bg-gradient-to-br from-character-blue to-character-blue-dark rounded-full animate-pulse" />
+        <div className="bg-card/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-border/50">
+          <img 
+            src="/lovable-uploads/0c21c18b-bd15-4bb4-abcd-cb56c8c07557.png" 
+            alt="Blue 3D character"
+            className="w-12 h-12 object-contain animate-pulse"
+          />
         </div>
       </div>
     </div>

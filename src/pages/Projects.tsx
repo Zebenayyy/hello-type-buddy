@@ -43,7 +43,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-blue/5 via-background to-character-blue-dark/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
       
       <div className="relative z-10 min-h-screen px-4 py-8">
         <div className="max-w-6xl mx-auto">
@@ -120,7 +120,7 @@ const Projects = () => {
               </CardHeader>
               <CardContent>
                 <Link to="/contact">
-                  <Button size="lg" className="bg-gradient-to-r from-character-blue-dark to-character-blue text-white font-semibold hover:shadow-lg transition-all duration-300">
+                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
                     Get In Touch
                   </Button>
                 </Link>

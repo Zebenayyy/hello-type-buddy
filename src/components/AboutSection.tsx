@@ -21,7 +21,7 @@ const AboutSection = () => {
               {/* Photo area */}
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl character-glow bg-gradient-to-br from-character-blue/20 to-character-blue-dark/20 flex items-center justify-center">
+                  <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl character-glow bg-gradient-to-br from-character-yellow/20 to-character-green/20 flex items-center justify-center">
                     <img
                       src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
                       alt="Your profile photo"
@@ -30,8 +30,8 @@ const AboutSection = () => {
                     />
                   </div>
                   {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-character-blue rounded-full animate-bounce-gentle" />
-                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-character-blue-dark rounded-full animate-bounce-gentle" style={{animationDelay: '0.5s'}} />
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-character-yellow rounded-full animate-bounce-gentle" />
+                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-character-green rounded-full animate-bounce-gentle" style={{animationDelay: '0.5s'}} />
                 </div>
               </div>
 
