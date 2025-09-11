@@ -86,8 +86,12 @@ const Index = () => {
       
       {/* Corner character indicator */}
       <div className="fixed bottom-6 right-6 z-20">
-        <div className="bg-card/80 backdrop-blur-sm rounded-full p-3 shadow-lg border border-border/50">
-          <div className="w-8 h-8 bg-gradient-to-br from-character-yellow to-character-green rounded-full animate-pulse" />
+        <div className="bg-card/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-border/50">
+          <img 
+            src="/lovable-uploads/0c21c18b-bd15-4bb4-abcd-cb56c8c07557.png" 
+            alt="Blue 3D character"
+            className="w-12 h-12 object-contain animate-pulse"
+          />
         </div>
       </div>
     </div>
