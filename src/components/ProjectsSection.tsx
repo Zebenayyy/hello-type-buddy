@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -104,9 +105,11 @@ const ProjectsSection = () => {
         {/* Call to action */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-6">Interested in seeing more of my work?</p>
-          <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
-            View All Projects
-          </Button>
+          <Link to="/projects">
+            <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
+              View All Projects
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

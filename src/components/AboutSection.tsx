@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
   return (
@@ -64,6 +66,15 @@ const AboutSection = () => {
                       {skill}
                     </span>
                   ))}
+                </div>
+                
+                {/* Learn more button */}
+                <div className="pt-6">
+                  <Link to="/about">
+                    <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
+                      Learn More About Me
+                    </Button>
+                  </Link>
                 </div>
               </article>
             </div>
