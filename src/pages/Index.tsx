@@ -53,8 +53,7 @@ const Index = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                I'm a student currently attending the University of Virginia who loves bringing cute ideas to life <3
-            
+                I'm a student currently attending the University of Virginia who loves bringing cute ideas to life {'<3'}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
