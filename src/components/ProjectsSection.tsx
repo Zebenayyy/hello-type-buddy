@@ -6,22 +6,22 @@ import { Link } from 'react-router-dom';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A modern e-commerce solution with real-time inventory, secure payments, and responsive design. Built with React and Node.js.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    status: 'Live'
-  },
-  {
-    title: 'Task Management App',
-    description: 'Collaborative project management tool with drag-and-drop functionality, team chat, and progress tracking.',
-    tags: ['TypeScript', 'Socket.io', 'PostgreSQL'],
+    title: 'NSBE UVA Chapter Website',
+    description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
+    tags: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
     status: 'In Progress'
   },
   {
-    title: 'Weather Dashboard',
-    description: 'Beautiful weather app with interactive maps, forecasts, and location-based alerts. Clean UI with smooth animations.',
-    tags: ['React', 'Weather API', 'Tailwind'],
+    title: 'Olympet: AI Educational Travel Buddy',
+    description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
+    tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
     status: 'Completed'
+  },
+  {
+    title: 'Hidden Guide: Location-Based App',
+    description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
+    tags: ['React Native', 'Firebase', 'Real-time Data'],
+    status: 'In Progress'
   },
 ];
 

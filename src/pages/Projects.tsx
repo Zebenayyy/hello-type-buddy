@@ -7,34 +7,34 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "🛒",
+      title: "NSBE UVA Chapter Website",
+      description: "Comprehensive website development for 100+ NSBE members using modern web technologies and responsive design",
+      tech: ["Vite", "TypeScript", "React", "shadcn-ui", "Tailwind CSS"],
+      image: "🌐",
       github: "#",
       demo: "#"
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates",
-      tech: ["React", "TypeScript", "Supabase", "Tailwind"],
-      image: "📋",
+      title: "Olympet: AI Educational Travel Buddy",
+      description: "AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes",
+      tech: ["Figma", "ProtoPie", "User Research", "AI"],
+      image: "🧸",
       github: "#",
       demo: "#"
     },
     {
-      title: "Weather Dashboard",
-      description: "Beautiful weather dashboard with location-based forecasts",
-      tech: ["React", "OpenWeather API", "Chart.js"],
-      image: "🌤️",
+      title: "Hidden Guide: Location-Based Mobile App",
+      description: "React Native mobile application with Firebase integration for real-time data storage, authentication, and push notifications",
+      tech: ["React Native", "Firebase", "Real-time Data", "Authentication"],
+      image: "📱",
       github: "#",
       demo: "#"
     },
     {
-      title: "Social Media Analytics",
-      description: "Analytics dashboard for social media performance tracking",
-      tech: ["Next.js", "D3.js", "MongoDB"],
-      image: "📊",
+      title: "Cura: AI Image Processing Platform",
+      description: "Web application for image processing and AI model training with custom LLM using 1000+ image dataset",
+      tech: ["HTML", "CSS", "JavaScript", "Python", "Flask", "OpenCV", "Nyckel"],
+      image: "🤖",
       github: "#",
       demo: "#"
     }
