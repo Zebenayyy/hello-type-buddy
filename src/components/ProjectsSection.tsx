@@ -9,19 +9,22 @@ const projects = [
     title: 'NSBE UVA Chapter Website',
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
     tags: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
-    status: 'In Progress'
+    status: 'In Progress',
+    hasDemo: true
   },
   {
     title: 'Olympet: AI Educational Travel Buddy',
     description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
     tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
-    status: 'Completed'
+    status: 'Completed',
+    hasDemo: true
   },
   {
     title: 'Hidden Guide: Location-Based App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     tags: ['React Native', 'Firebase', 'Real-time Data'],
-    status: 'In Progress'
+    status: 'In Progress',
+    hasDemo: false
   },
 ];
 
@@ -92,10 +95,12 @@ const ProjectsSection = () => {
                     <Github className="w-4 h-4 mr-2" />
                     Code
                   </Button>
-                  <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live
-                  </Button>
+                  {project.hasDemo && (
+                    <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

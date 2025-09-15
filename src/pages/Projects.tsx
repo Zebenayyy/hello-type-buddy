@@ -12,7 +12,8 @@ const Projects = () => {
       tech: ["Vite", "TypeScript", "React", "shadcn-ui", "Tailwind CSS"],
       image: "🌐",
       github: "#",
-      demo: "#"
+      demo: "#",
+      hasDemo: true
     },
     {
       title: "Olympet: AI Educational Travel Buddy",
@@ -20,7 +21,8 @@ const Projects = () => {
       tech: ["Figma", "ProtoPie", "User Research", "AI"],
       image: "🧸",
       github: "#",
-      demo: "#"
+      demo: "#",
+      hasDemo: true
     },
     {
       title: "Hidden Guide: Location-Based Mobile App",
@@ -28,7 +30,7 @@ const Projects = () => {
       tech: ["React Native", "Firebase", "Real-time Data", "Authentication"],
       image: "📱",
       github: "#",
-      demo: "#"
+      hasDemo: false
     },
     {
       title: "Cura: AI Image Processing Platform",
@@ -36,7 +38,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript", "Python", "Flask", "OpenCV", "Nyckel"],
       image: "🤖",
       github: "#",
-      demo: "#"
+      hasDemo: false
     }
   ];
 
@@ -98,10 +100,12 @@ const Projects = () => {
                         <Github className="w-4 h-4 mr-2" />
                         Code
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
+                      {project.hasDemo && (
+                        <Button variant="outline" size="sm" className="flex-1">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>
