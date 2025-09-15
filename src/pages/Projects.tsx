@@ -81,7 +81,13 @@ const Projects = () => {
               <Card key={index} className="animate-fade-in hover:shadow-lg transition-shadow duration-300" 
                     style={{animationDelay: `${index * 0.1}s`}}>
                 <CardHeader>
-                  <div className="text-4xl mb-4 text-center">{project.image}</div>
+                  <div className="mb-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
