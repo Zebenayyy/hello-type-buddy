@@ -3,6 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
+import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
+import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
+import Cura from '@/components/Screenshot 2025-09-15 153032.png';
 
 const Projects = () => {
   const projects = [
@@ -10,7 +14,7 @@ const Projects = () => {
       title: "NSBE UVA Chapter Website",
       description: "Comprehensive website development for 100+ NSBE members using modern web technologies and responsive design",
       tech: ["Vite", "TypeScript", "React", "shadcn-ui", "Tailwind CSS"],
-      image: "🌐",
+      image: NSBE_Website,
       demo: "#",
       hasDemo: true,
       hasGithub: false
@@ -19,7 +23,7 @@ const Projects = () => {
       title: "Olympet: AI Educational Travel Buddy",
       description: "AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes",
       tech: ["Figma", "ProtoPie", "User Research", "AI"],
-      image: "🧸",
+      image: Olympet,
       demo: "#",
       hasDemo: true,
       hasGithub: false
@@ -28,7 +32,7 @@ const Projects = () => {
       title: "Hidden Guide: Location-Based Mobile App",
       description: "React Native mobile application with Firebase integration for real-time data storage, authentication, and push notifications",
       tech: ["React Native", "Firebase", "Real-time Data", "Authentication"],
-      image: "📱",
+      image: Hidden,
       github: "#",
       hasDemo: false,
       hasGithub: true
@@ -37,7 +41,7 @@ const Projects = () => {
       title: "Cura: AI Image Processing Platform",
       description: "Web application for image processing and AI model training with custom LLM using 1000+ image dataset",
       tech: ["HTML", "CSS", "JavaScript", "Python", "Flask", "OpenCV", "Nyckel"],
-      image: "🤖",
+      image: Cura,
       github: "#",
       hasDemo: false,
       hasGithub: true
