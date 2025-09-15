@@ -3,6 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
+import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
+import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
 
 const projects = [
   {
@@ -10,6 +13,7 @@ const projects = [
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
     tags: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
     status: 'In Progress',
+    image: NSBE_Website,
     hasDemo: true,
     hasGithub: false
   },
@@ -18,6 +22,7 @@ const projects = [
     description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
     tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
     status: 'Completed',
+    image: Olympet,
     hasDemo: true,
     hasGithub: false
   },
@@ -26,6 +31,7 @@ const projects = [
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     tags: ['React Native', 'Firebase', 'Real-time Data'],
     status: 'In Progress',
+    image: Hidden,
     hasDemo: false,
     hasGithub: true
   },
@@ -52,7 +58,12 @@ const ProjectsSection = () => {
               className="group bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
               {/* Project preview area */}
-              <div className="h-48 bg-gradient-to-br from-character-yellow/20 to-character-green/20 relative overflow-hidden">
+              <div className="h-48 relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300" />
                 <div className="absolute top-4 right-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
@@ -62,10 +73,6 @@ const ProjectsSection = () => {
                   }`}>
                     {project.status}
                   </span>
-                </div>
-                {/* Placeholder for project image */}
-                <div className="absolute inset-0 flex items-center justify-center text-6xl text-primary/30">
-                  📱
                 </div>
               </div>
               
