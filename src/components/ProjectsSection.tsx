@@ -10,21 +10,24 @@ const projects = [
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
     tags: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
     status: 'In Progress',
-    hasDemo: true
+    hasDemo: true,
+    hasGithub: false
   },
   {
     title: 'Olympet: AI Educational Travel Buddy',
     description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
     tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
     status: 'Completed',
-    hasDemo: true
+    hasDemo: true,
+    hasGithub: false
   },
   {
     title: 'Hidden Guide: Location-Based App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     tags: ['React Native', 'Firebase', 'Real-time Data'],
     status: 'In Progress',
-    hasDemo: false
+    hasDemo: false,
+    hasGithub: true
   },
 ];
 
@@ -91,14 +94,16 @@ const ProjectsSection = () => {
                 
                 {/* Action buttons */}
                 <div className="flex gap-2 pt-2">
-                  <Button size="sm" variant="outline" className="flex-1">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                  {project.hasGithub && (
+                    <Button size="sm" variant="outline" className="flex-1">
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
                   {project.hasDemo && (
-                    <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                    <Button size="sm" className={`bg-primary hover:bg-primary/90 ${project.hasGithub ? 'flex-1' : 'w-full'}`}>
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Live
+                      Link
                     </Button>
                   )}
                 </div>
