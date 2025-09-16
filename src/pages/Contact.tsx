@@ -93,15 +93,12 @@ const Contact = () => {
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">hello@yourname.com</span>
+                    <span className="text-muted-foreground">zebenaimelaku@gmail.com</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">+1 (555) 123-4567</span>
-                  </div>
+                  
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">San Francisco, CA</span>
+                    <span className="text-muted-foreground">Sliver Spring, MD</span>
                   </div>
                 </CardContent>
               </Card>
@@ -117,12 +114,15 @@ const Contact = () => {
                     <Button variant="outline" size="icon" className="hover:bg-primary/10">
                       <Github className="w-5 h-5" />
                     </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-primary/10">
-                      <Linkedin className="w-5 h-5" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-primary/10">
-                      <Twitter className="w-5 h-5" />
-                    </Button>
+                   <Button 
+  variant="outline" 
+  size="icon" 
+  className="hover:bg-primary/10"
+  onClick={() => window.open('https://www.linkedin.com/in/zebenai-melaku', '_blank', 'noopener,noreferrer')}
+>
+  <Linkedin className="w-5 h-5" />
+</Button>
+                  
                   </div>
                 </CardContent>
               </Card>
