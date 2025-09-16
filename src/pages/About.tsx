@@ -42,13 +42,12 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  I'm a creative developer who believes in the power of clean code and beautiful design. 
-                  My journey in tech started with curiosity and has evolved into a passion for building 
-                  meaningful digital experiences.
+                  Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+I love being creative and hopefully that shows throughout this website!
                 </p>
                 <p className="text-muted-foreground">
-                  When I'm not coding, you can find me exploring new technologies, reading about design 
-                  principles, or working on personal projects that challenge my skills.
+                   When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
                 </p>
               </CardContent>
             </Card>
