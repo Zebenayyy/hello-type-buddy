@@ -77,54 +77,59 @@ const Projects = () => {
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {projects.map((project, index) => (
-              <Card key={index} className="animate-fade-in hover:shadow-lg transition-shadow duration-300" 
-                    style={{animationDelay: `${index * 0.1}s`}}>
-                <CardHeader>
-                  <div className="mb-4">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </div>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {/* Tech Stack */}
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2">Technologies</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.map((tech, techIndex) => (
-                          <span key={techIndex} 
-                                className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded">
-                            {tech}
-                          </span>
-                        ))}
+            {projects.map((project, index) => {
+              const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              return (
+                <Link key={index} to={`/projects/${projectSlug}`}>
+                  <Card className="animate-fade-in hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full" 
+                        style={{animationDelay: `${index * 0.1}s`}}>
+                    <CardHeader>
+                      <div className="mb-4">
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
                       </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      {project.hasGithub && (
-                        <Button variant="outline" size="sm" className="flex-1">
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
-                        </Button>
-                      )}
-                      {project.hasDemo && (
-                        <Button variant="outline" size="sm" className={project.hasGithub ? "flex-1" : "w-full"}>
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Link
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                      <CardTitle className="text-xl">{project.title}</CardTitle>
+                      <CardDescription>{project.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        {/* Tech Stack */}
+                        <div>
+                          <h4 className="font-semibold text-sm mb-2">Technologies</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {project.tech.map((tech, techIndex) => (
+                              <span key={techIndex} 
+                                    className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Action Buttons */}
+                        <div className="flex gap-2">
+                          {project.hasGithub && (
+                            <Button variant="outline" size="sm" className="flex-1">
+                              <Github className="w-4 h-4 mr-2" />
+                              Code
+                            </Button>
+                          )}
+                          {project.hasDemo && (
+                            <Button variant="outline" size="sm" className={project.hasGithub ? "flex-1" : "w-full"}>
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Link
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Call to Action */}

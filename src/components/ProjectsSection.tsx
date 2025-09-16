@@ -52,11 +52,12 @@ const ProjectsSection = () => {
         </header>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.title} 
-              className="group bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            >
+          {projects.map((project, index) => {
+            const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            return (
+            <Link key={project.title} to={`/projects/${projectSlug}`}>
+              <Card className="group bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full"
+              >
               {/* Project preview area */}
               <div className="h-48 relative overflow-hidden">
                 <img 
@@ -115,8 +116,10 @@ const ProjectsSection = () => {
                   )}
                 </div>
               </CardContent>
-            </Card>
-          ))}
+              </Card>
+            </Link>
+            );
+          })}
         </div>
         
         {/* Call to action */}
