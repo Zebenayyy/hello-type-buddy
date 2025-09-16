@@ -41,18 +41,15 @@ const AboutSection = () => {
               <article className="space-y-6">
                 <div className="space-y-4">
                   <p className="text-foreground text-xl leading-relaxed font-medium">
-                    Hi there! I'm a creative developer who enjoys crafting delightful, 
-                    performant web experiences that make a difference.
+                     Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+
                   </p>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    I focus on clean UI design, smooth interactions, and building products
-                    that people genuinely love to use. Every project is an opportunity
-                    to push boundaries and create something amazing.
+                  I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+I love being creative and hopefully that shows throughout this website!
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    When I'm not coding, you'll find me exploring new technologies,
-                    sketching design ideas, or learning something completely new.
-                    I believe that curiosity and continuous learning are key to growth.
+                   When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
                   </p>
                 </div>
                 
