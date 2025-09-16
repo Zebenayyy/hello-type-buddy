@@ -15,7 +15,7 @@ const Projects = () => {
       description: "Comprehensive website development for 100+ NSBE members using modern web technologies and responsive design",
       tech: ["Vite", "TypeScript", "React", "shadcn-ui", "Tailwind CSS"],
       image: NSBE_Website,
-      demo: "#",
+      demo: "https://uvansbe.com",
       hasDemo: true,
       hasGithub: false
     },
@@ -24,7 +24,7 @@ const Projects = () => {
       description: "AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes",
       tech: ["Figma", "ProtoPie", "User Research", "AI"],
       image: Olympet,
-      demo: "#",
+      demo: "https://sites.google.com/view/olympet/home",
       hasDemo: true,
       hasGithub: false
     },
@@ -33,7 +33,7 @@ const Projects = () => {
       description: "React Native mobile application with Firebase integration for real-time data storage, authentication, and push notifications",
       tech: ["React Native", "Firebase", "Real-time Data", "Authentication"],
       image: Hidden,
-      github: "#",
+      github: "https://github.com/Zebenayyy/HIDDEN_GUIDE3",
       hasDemo: false,
       hasGithub: true
     },
@@ -42,7 +42,7 @@ const Projects = () => {
       description: "Web application for image processing and AI model training with custom LLM using 1000+ image dataset",
       tech: ["HTML", "CSS", "JavaScript", "Python", "Flask", "OpenCV", "Nyckel"],
       image: Cura,
-      github: "#",
+      github: "https://github.com/Zebenayyy/Cura",
       hasDemo: false,
       hasGithub: true
     }
@@ -112,16 +112,20 @@ const Projects = () => {
                         {/* Action Buttons */}
                         <div className="flex gap-2">
                           {project.hasGithub && (
-                            <Button variant="outline" size="sm" className="flex-1">
-                              <Github className="w-4 h-4 mr-2" />
-                              Code
-                            </Button>
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                              <Button variant="outline" size="sm" className="w-full">
+                                <Github className="w-4 h-4 mr-2" />
+                                Code
+                              </Button>
+                            </a>
                           )}
                           {project.hasDemo && (
-                            <Button variant="outline" size="sm" className={project.hasGithub ? "flex-1" : "w-full"}>
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Link
-                            </Button>
+                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? "flex-1" : "w-full"}>
+                              <Button variant="outline" size="sm" className="w-full">
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                Link
+                              </Button>
+                            </a>
                           )}
                         </div>
                       </div>

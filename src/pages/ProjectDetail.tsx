@@ -7,15 +7,17 @@ import TopNav from '@/components/TopNav';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
 import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
+import Cura from '@/components/Screenshot 2025-09-15 153032.png';
 
 const projectDetails = {
-  'nsbe-website': {
+  'nsbe-uva-website': {
     title: 'NSBE UVA Chapter Website',
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
     longDescription: 'This project involved creating a modern, responsive website for the University of Virginia\'s National Society of Black Engineers chapter. The website serves over 100 members and provides essential information about events, leadership, and chapter activities.',
     technologies: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
     status: 'In Progress',
     image: NSBE_Website,
+    demoUrl: 'https://uvansbe.com',
     hasDemo: true,
     hasGithub: false,
     developmentProcess: [
@@ -32,13 +34,14 @@ const projectDetails = {
       'Creating mobile-first responsive design'
     ]
   },
-  'olympet': {
+  'olympet-ai-educational-travel-buddy': {
     title: 'Olympet: AI Educational Travel Buddy',
     description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
     longDescription: 'Olympet is an innovative AI-powered educational travel companion designed to enhance family travel experiences. The app features a dual-interface system - one designed for children with gamified learning elements, and another for parents with comprehensive planning tools.',
     technologies: ['Figma', 'ProtoPie', 'User Research', 'AI Design'],
     status: 'Completed',
     image: Olympet,
+    demoUrl: 'https://sites.google.com/view/olympet/home',
     hasDemo: true,
     hasGithub: false,
     developmentProcess: [
@@ -55,13 +58,14 @@ const projectDetails = {
       'Creating seamless parent-child interaction workflows'
     ]
   },
-  'hidden-guide': {
+  'hidden-guide-location-based-app': {
     title: 'Hidden Guide: Location-Based App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     longDescription: 'Hidden Guide is a location-based mobile application that helps users discover hidden gems and local attractions. Built with React Native and Firebase, it provides real-time data synchronization, user authentication, and push notifications for location-based alerts.',
     technologies: ['React Native', 'Firebase', 'Real-time Database', 'Push Notifications'],
     status: 'In Progress',
     image: Hidden,
+    githubUrl: 'https://github.com/Zebenayyy/HIDDEN_GUIDE3',
     hasDemo: false,
     hasGithub: true,
     developmentProcess: [
@@ -76,6 +80,31 @@ const projectDetails = {
       'Handling location permissions across different platforms',
       'Optimizing real-time data synchronization for performance',
       'Managing offline functionality and data caching'
+    ]
+  },
+  'cura-ai-image-processing-platform': {
+    title: 'Cura: AI Image Processing Platform',
+    description: 'Web application for image processing and AI model training with custom LLM using 1000+ image dataset.',
+    longDescription: 'Cura is a comprehensive AI image processing platform that combines traditional image processing techniques with modern machine learning. The platform processes over 1000 images to train custom models and provides an intuitive web interface for users to interact with AI-powered image analysis tools.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'Flask', 'OpenCV', 'Nyckel'],
+    status: 'Completed',
+    image: Cura,
+    githubUrl: 'https://github.com/Zebenayyy/Cura',
+    hasDemo: false,
+    hasGithub: true,
+    developmentProcess: [
+      'Researched various image processing algorithms and AI models',
+      'Built web interface using HTML, CSS, and JavaScript',
+      'Developed backend API using Python Flask framework',
+      'Integrated OpenCV for computer vision processing',
+      'Implemented Nyckel for custom machine learning model training',
+      'Processed and labeled 1000+ image dataset for model training',
+      'Optimized model performance and accuracy through testing'
+    ],
+    challenges: [
+      'Managing large dataset processing and storage efficiently',
+      'Integrating multiple AI services and APIs seamlessly',
+      'Optimizing image processing performance for real-time results'
     ]
   }
 };
@@ -130,17 +159,21 @@ const ProjectDetail = () => {
           
           {/* Action buttons */}
           <div className="flex gap-4">
-            {project.hasGithub && (
-              <Button size="lg" variant="outline">
-                <Github className="w-5 h-5 mr-2" />
-                View Code
-              </Button>
+            {project.hasGithub && 'githubUrl' in project && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline">
+                  <Github className="w-5 h-5 mr-2" />
+                  View Code
+                </Button>
+              </a>
             )}
-            {project.hasDemo && (
-              <Button size="lg">
-                <ExternalLink className="w-5 h-5 mr-2" />
-                View Link
-              </Button>
+            {project.hasDemo && 'demoUrl' in project && (
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="lg">
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  View Link
+                </Button>
+              </a>
             )}
           </div>
         </div>

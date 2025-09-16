@@ -14,6 +14,7 @@ const projects = [
     tags: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
     status: 'In Progress',
     image: NSBE_Website,
+    demo: 'https://uvansbe.com',
     hasDemo: true,
     hasGithub: false
   },
@@ -23,6 +24,7 @@ const projects = [
     tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
     status: 'Completed',
     image: Olympet,
+    demo: 'https://sites.google.com/view/olympet/home',
     hasDemo: true,
     hasGithub: false
   },
@@ -32,6 +34,7 @@ const projects = [
     tags: ['React Native', 'Firebase', 'Real-time Data'],
     status: 'In Progress',
     image: Hidden,
+    github: 'https://github.com/Zebenayyy/HIDDEN_GUIDE3',
     hasDemo: false,
     hasGithub: true
   },
@@ -103,16 +106,20 @@ const ProjectsSection = () => {
                 {/* Action buttons */}
                 <div className="flex gap-2 pt-2">
                   {project.hasGithub && (
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button size="sm" variant="outline" className="w-full">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
                   )}
                   {project.hasDemo && (
-                    <Button size="sm" className={`bg-primary hover:bg-primary/90 ${project.hasGithub ? 'flex-1' : 'w-full'}`}>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Link
-                    </Button>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'}>
+                      <Button size="sm" className={`bg-primary hover:bg-primary/90 w-full`}>
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Link
+                      </Button>
+                    </a>
                   )}
                 </div>
               </CardContent>
