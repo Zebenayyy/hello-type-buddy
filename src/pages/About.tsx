@@ -43,11 +43,15 @@ const About = () => {
               <CardContent>
                 <p className="text-muted-foreground mb-4">
                   Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
-I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
-I love being creative and hopefully that shows throughout this website!
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  I love being creative and hopefully that shows throughout this website!
                 </p>
                 <p className="text-muted-foreground">
-                   When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
+                  When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
                 </p>
               </CardContent>
             </Card>
@@ -91,19 +95,26 @@ I love being creative and hopefully that shows throughout this website!
               <CardContent>
                 <div className="space-y-6">
                   <div className="border-l-2 border-primary/30 pl-6">
-                    <h4 className="font-semibold text-lg">Full Stack Developer</h4>
-                    <p className="text-muted-foreground text-sm mb-2">2022 - Present</p>
+                    <h4 className="font-semibold text-lg">Research Assistant</h4>
+                    <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
                     <p className="text-muted-foreground">
-                      Building scalable web applications and working with modern tech stacks. 
-                      Focus on user experience and clean, maintainable code.
+                      Working on the PadGlider project, focusing on human-computer interaction research and user interface design.
                     </p>
                   </div>
                   
                   <div className="border-l-2 border-primary/30 pl-6">
-                    <h4 className="font-semibold text-lg">Frontend Developer</h4>
-                    <p className="text-muted-foreground text-sm mb-2">2020 - 2022</p>
+                    <h4 className="font-semibold text-lg">Teaching Assistant</h4>
+                    <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
                     <p className="text-muted-foreground">
-                      Specialized in creating responsive, accessible user interfaces with React and modern CSS frameworks.
+                      Supporting students in learning HCI principles and helping with coursework and projects.
+                    </p>
+                  </div>
+
+                  <div className="border-l-2 border-primary/30 pl-6">
+                    <h4 className="font-semibold text-lg">Programs Chair</h4>
+                    <p className="text-muted-foreground text-sm mb-2">NSBE - Present</p>
+                    <p className="text-muted-foreground">
+                      Leading program development and coordinating events for the National Society of Black Engineers chapter.
                     </p>
                   </div>
                 </div>
