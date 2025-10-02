@@ -29,7 +29,7 @@ const projects = [
     hasGithub: false
   },
   {
-    title: 'Hidden Guide: Location-Based App',
+    title: 'Hidden Guide: Location-Based Mobile App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     tags: ['React Native', 'Firebase', 'Real-time Data'],
     status: 'In Progress',

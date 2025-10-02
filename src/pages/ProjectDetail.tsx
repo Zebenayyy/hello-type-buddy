@@ -65,8 +65,8 @@ const projectDetails = {
       'Creating seamless parent-child interaction workflows'
     ]
   },
-  'hidden-guide-location-based-app': {
-    title: 'Hidden Guide: Location-Based App',
+  'hidden-guide-location-based-mobile-app': {
+    title: 'Hidden Guide: Location-Based Mobile App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
     longDescription: 'Hidden Guide is an innovative location-based mobile application designed to help users discover hidden gems, local attractions, and off-the-beaten-path destinations in their area. Built with React Native for cross-platform compatibility, the app leverages Firebase for real-time data synchronization, secure user authentication, and instant push notifications. Users can share their own discoveries, view curated recommendations, and receive location-based alerts when they\'re near interesting places. The app creates a community-driven platform for explorers and locals to share unique experiences.',
     technologies: ['React Native', 'Firebase', 'Firebase Authentication', 'Firestore', 'Cloud Messaging', 'React Navigation', 'Google Maps API'],
