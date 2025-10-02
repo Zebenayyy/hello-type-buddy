@@ -18,8 +18,10 @@ const projectDetails = {
     status: 'In Progress',
     image: NSBE_Website,
     demoUrl: 'https://uvansbe.com',
+    figmaUrl: 'https://www.figma.com/design/8XyCKe5AlRjkTl18mDxXhw/NSBE-Website?node-id=0-1&t=kDYG3gqUxI3o5hOd-1',
     hasDemo: true,
     hasGithub: false,
+    hasFigma: true,
     developmentProcess: [
       'Conducted stakeholder interviews with NSBE leadership to define requirements and key features',
       'Performed user research with chapter members to understand their needs and pain points',
@@ -177,7 +179,7 @@ const ProjectDetail = () => {
           <p className="text-xl text-muted-foreground mb-6">{project.description}</p>
           
           {/* Action buttons */}
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             {project.hasGithub && 'githubUrl' in project && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline">
@@ -190,7 +192,15 @@ const ProjectDetail = () => {
               <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                 <Button size="lg">
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  View Link
+                  View Website
+                </Button>
+              </a>
+            )}
+            {'hasFigma' in project && project.hasFigma && 'figmaUrl' in project && (
+              <a href={project.figmaUrl as string} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline">
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  View First Draft (Figma)
                 </Button>
               </a>
             )}
