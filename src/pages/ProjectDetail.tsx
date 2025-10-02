@@ -10,28 +10,35 @@ import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
 import Cura from '@/components/Screenshot 2025-09-15 153032.png';
 
 const projectDetails = {
-  'nsbe-uva-website': {
+  'nsbe-uva-chapter-website': {
     title: 'NSBE UVA Chapter Website',
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
-    longDescription: 'This project involved creating a modern, responsive website for the University of Virginia\'s National Society of Black Engineers chapter. The website serves over 100 members and provides essential information about events, leadership, and chapter activities.',
-    technologies: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
+    longDescription: 'Designed and developed a modern, fully responsive website for the University of Virginia\'s National Society of Black Engineers (NSBE) chapter, serving over 100 active members. The website acts as a central hub for chapter information, event management, member resources, and community engagement. Built with React and TypeScript, it features a clean, professional interface that showcases the organization\'s mission, leadership team, upcoming events, and opportunities for students interested in engineering and technology.',
+    technologies: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS', 'React Router'],
     status: 'In Progress',
     image: NSBE_Website,
     demoUrl: 'https://uvansbe.com',
     hasDemo: true,
     hasGithub: false,
     developmentProcess: [
-      'Conducted user research with NSBE members to understand needs',
-      'Designed responsive layouts using Figma prototypes',
-      'Built component library using shadcn-ui and Tailwind CSS',
-      'Implemented TypeScript for type safety and better development experience',
-      'Created responsive navigation and member directory features',
-      'Optimized performance and accessibility standards'
+      'Conducted stakeholder interviews with NSBE leadership to define requirements and key features',
+      'Performed user research with chapter members to understand their needs and pain points',
+      'Created wireframes and high-fidelity prototypes in Figma for desktop and mobile views',
+      'Architected component structure using React with TypeScript for type safety',
+      'Built reusable UI component library using shadcn-ui and Tailwind CSS',
+      'Implemented dynamic event calendar and member directory features',
+      'Integrated contact forms for prospective members and recruitment',
+      'Optimized site performance with lazy loading and code splitting',
+      'Ensured WCAG 2.1 accessibility compliance throughout the site',
+      'Deployed using modern CI/CD practices with version control'
     ],
     challenges: [
-      'Managing content for 100+ members with dynamic updates',
-      'Ensuring accessibility compliance for all users',
-      'Creating mobile-first responsive design'
+      'Balancing aesthetic design with information density for 100+ members',
+      'Creating an intuitive navigation system for diverse content types',
+      'Managing dynamic content updates for events and member information',
+      'Ensuring fast load times while maintaining visual quality',
+      'Making the site fully accessible to users with disabilities',
+      'Implementing a mobile-first responsive design that works across all devices'
     ]
   },
   'olympet-ai-educational-travel-buddy': {
