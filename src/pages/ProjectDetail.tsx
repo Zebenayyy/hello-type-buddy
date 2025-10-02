@@ -68,25 +68,37 @@ const projectDetails = {
   'hidden-guide-location-based-app': {
     title: 'Hidden Guide: Location-Based App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
-    longDescription: 'Hidden Guide is a location-based mobile application that helps users discover hidden gems and local attractions. Built with React Native and Firebase, it provides real-time data synchronization, user authentication, and push notifications for location-based alerts.',
-    technologies: ['React Native', 'Firebase', 'Real-time Database', 'Push Notifications'],
+    longDescription: 'Hidden Guide is an innovative location-based mobile application designed to help users discover hidden gems, local attractions, and off-the-beaten-path destinations in their area. Built with React Native for cross-platform compatibility, the app leverages Firebase for real-time data synchronization, secure user authentication, and instant push notifications. Users can share their own discoveries, view curated recommendations, and receive location-based alerts when they\'re near interesting places. The app creates a community-driven platform for explorers and locals to share unique experiences.',
+    technologies: ['React Native', 'Firebase', 'Firebase Authentication', 'Firestore', 'Cloud Messaging', 'React Navigation', 'Google Maps API'],
     status: 'In Progress',
     image: Hidden,
     githubUrl: 'https://github.com/Zebenayyy/HIDDEN_GUIDE3',
     hasDemo: false,
     hasGithub: true,
     developmentProcess: [
-      'Set up React Native development environment',
-      'Integrated Firebase for backend services',
-      'Implemented user authentication and profile management',
-      'Built location services and mapping functionality',
-      'Created real-time data synchronization for user-generated content',
-      'Added push notification system for location alerts'
+      'Researched location-based app requirements and user needs through market analysis',
+      'Set up React Native development environment for iOS and Android',
+      'Architected app structure with modular component design and navigation flow',
+      'Integrated Firebase Authentication for secure user registration and login',
+      'Configured Firestore for real-time database to store locations and user data',
+      'Implemented Google Maps API for interactive map views and location markers',
+      'Built location services using device GPS for real-time position tracking',
+      'Created user profile management with photo uploads and preferences',
+      'Developed location discovery feed with filtering and search capabilities',
+      'Integrated Firebase Cloud Messaging for push notifications',
+      'Implemented geofencing to trigger alerts when users enter specific areas',
+      'Added offline functionality with local data caching and sync',
+      'Optimized performance for smooth animations and map interactions',
+      'Tested extensively on both iOS and Android devices for cross-platform compatibility'
     ],
     challenges: [
-      'Handling location permissions across different platforms',
-      'Optimizing real-time data synchronization for performance',
-      'Managing offline functionality and data caching'
+      'Handling location permissions and privacy concerns across iOS and Android platforms',
+      'Optimizing real-time data synchronization to minimize battery drain',
+      'Managing offline functionality with seamless sync when connection is restored',
+      'Implementing accurate geofencing without excessive battery usage',
+      'Ensuring smooth map performance with hundreds of location markers',
+      'Balancing data storage between local cache and cloud database',
+      'Creating an intuitive UX for discovering new locations while navigating'
     ]
   },
   'cura-ai-image-processing-platform': {
