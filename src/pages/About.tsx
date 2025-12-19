@@ -143,7 +143,7 @@ const About = () => {
               </div>
               
               <div className="mt-8 pt-6 border-t border-border/50">
-                <a href="/lovable-uploads/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="src/components/Melaku_Zebenai_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="w-full sm:w-auto">
                     <FileText className="w-5 h-5 mr-2" />
                     View Full Resume
