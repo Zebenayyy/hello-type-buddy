@@ -35,18 +35,13 @@ const About = () => {
           {/* Profile Image and Who I Am Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Profile Image - Left side */}
-            <div className="relative">
-              <div className="w-full aspect-square rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20">
-                <img
-                  src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
-                  alt="Zebenai Melaku"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-character-yellow rounded-lg animate-bounce-gentle" />
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-character-green rounded-lg animate-bounce-gentle" style={{animationDelay: '0.5s'}} />
+            <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20">
+              <img
+                src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
+                alt="Zebenai Melaku"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Personal Info - Right side */}
@@ -74,9 +69,8 @@ const About = () => {
 
           {/* Content Grid */}
           <div className="grid md:grid-cols-2 gap-8">
-
-            {/* Skills */}
-            <Card className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+            {/* Skills - Now on the right by using order */}
+            <Card className="animate-fade-in md:order-2" style={{animationDelay: '0.2s'}}>
               <CardHeader>
                 <CardTitle className="text-2xl">Skills & Technologies</CardTitle>
                 <CardDescription>The tools I use to bring ideas to life</CardDescription>
