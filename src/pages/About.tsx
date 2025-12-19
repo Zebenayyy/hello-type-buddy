@@ -32,7 +32,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Profile Image and Who I Am Section */}
+          {/* Profile Image and Info Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Profile Image - Left side */}
             <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20">
@@ -44,96 +44,96 @@ const About = () => {
               />
             </div>
 
-            {/* Personal Info - Right side */}
-            <Card className="animate-fade-in">
-              <CardHeader>
-                <CardTitle className="text-2xl">Who I Am</CardTitle>
-                <CardDescription>A passionate developer with a love for creating</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  I love being creative and hopefully that shows throughout this website!
-                </p>
-                <p className="text-muted-foreground">
-                  When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
-                </p>
-              </CardContent>
-            </Card>
+            {/* Right side - Who I Am + Skills stacked */}
+            <div className="space-y-8">
+              {/* Personal Info */}
+              <Card className="animate-fade-in">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Who I Am</CardTitle>
+                  <CardDescription>A passionate developer with a love for creating</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    I love being creative and hopefully that shows throughout this website!
+                  </p>
+                  <p className="text-muted-foreground">
+                    When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Skills */}
+              <Card className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+                <CardHeader>
+                  <CardTitle className="text-2xl">Skills & Technologies</CardTitle>
+                  <CardDescription>The tools I use to bring ideas to life</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Frontend</h4>
+                      <p className="text-muted-foreground text-sm">
+                        React, TypeScript, Tailwind CSS, Next.js
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Backend</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Node.js, Python, PostgreSQL, Supabase
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Tools</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Git, VS Code, Figma, Docker
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Skills - Now on the right by using order */}
-            <Card className="animate-fade-in md:order-2" style={{animationDelay: '0.2s'}}>
-              <CardHeader>
-                <CardTitle className="text-2xl">Skills & Technologies</CardTitle>
-                <CardDescription>The tools I use to bring ideas to life</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold mb-2">Frontend</h4>
-                    <p className="text-muted-foreground text-sm">
-                      React, TypeScript, Tailwind CSS, Next.js
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Backend</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Node.js, Python, PostgreSQL, Supabase
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Tools</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Git, VS Code, Figma, Docker
-                    </p>
-                  </div>
+          {/* Experience Section */}
+          <Card className="animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <CardHeader>
+              <CardTitle className="text-2xl">Experience & Background</CardTitle>
+              <CardDescription>My journey in the world of development</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="border-l-2 border-primary/30 pl-6">
+                  <h4 className="font-semibold text-lg">Research Assistant</h4>
+                  <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
+                  <p className="text-muted-foreground">
+                    Working on the PadGlider project, focusing on human-computer interaction research and user interface design.
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Experience */}
-            <Card className="animate-fade-in md:col-span-2" style={{animationDelay: '0.4s'}}>
-              <CardHeader>
-                <CardTitle className="text-2xl">Experience & Background</CardTitle>
-                <CardDescription>My journey in the world of development</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="border-l-2 border-primary/30 pl-6">
-                    <h4 className="font-semibold text-lg">Research Assistant</h4>
-                    <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
-                    <p className="text-muted-foreground">
-                      Working on the PadGlider project, focusing on human-computer interaction research and user interface design.
-                    </p>
-                  </div>
-                  
-                  <div className="border-l-2 border-primary/30 pl-6">
-                    <h4 className="font-semibold text-lg">Teaching Assistant</h4>
-                    <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
-                    <p className="text-muted-foreground">
-                      Supporting students in learning HCI principles and helping with coursework and projects.
-                    </p>
-                  </div>
-
-                  <div className="border-l-2 border-primary/30 pl-6">
-                    <h4 className="font-semibold text-lg">Programs Chair</h4>
-                    <p className="text-muted-foreground text-sm mb-2">NSBE - Present</p>
-                    <p className="text-muted-foreground">
-                      Leading program development and coordinating events for the National Society of Black Engineers chapter.
-                    </p>
-                  </div>
+                
+                <div className="border-l-2 border-primary/30 pl-6">
+                  <h4 className="font-semibold text-lg">Teaching Assistant</h4>
+                  <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
+                  <p className="text-muted-foreground">
+                    Supporting students in learning HCI principles and helping with coursework and projects.
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+
+                <div className="border-l-2 border-primary/30 pl-6">
+                  <h4 className="font-semibold text-lg">Programs Chair</h4>
+                  <p className="text-muted-foreground text-sm mb-2">NSBE - Present</p>
+                  <p className="text-muted-foreground">
+                    Leading program development and coordinating events for the National Society of Black Engineers chapter.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
