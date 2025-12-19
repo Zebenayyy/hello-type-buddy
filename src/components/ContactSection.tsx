@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 const ContactSection = () => {
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -13,27 +13,6 @@ const ContactSection = () => {
     toast.success('Thanks! Your message has been sent successfully.');
     (e.currentTarget as HTMLFormElement).reset();
   };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'hello@yourname.com',
-      description: 'Send me an email anytime'
-    },
-    {
-      icon: MapPin,
-      title: 'Location',
-      value: 'Your City, Country',
-      description: 'Available for remote work'
-    },
-    {
-      icon: Clock,
-      title: 'Response Time',
-      value: '24-48 hours',
-      description: 'I respond to all inquiries'
-    }
-  ];
 
   return (
     <section id="contact" className="scroll-mt-24 relative">
@@ -47,21 +26,6 @@ const ContactSection = () => {
             Have a project in mind? Let's collaborate and create something amazing together
           </p>
         </header>
-
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {contactInfo.map((info, index) => (
-            <Card key={index} className="bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <info.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                <p className="text-primary font-medium mb-1">{info.value}</p>
-                <p className="text-muted-foreground text-sm">{info.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
         <Card className="bg-card/80 backdrop-blur-sm border-border/50 shadow-xl">
           <CardContent className="p-8 md:p-12">
