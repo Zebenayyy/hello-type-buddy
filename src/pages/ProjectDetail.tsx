@@ -23,7 +23,7 @@ const projectDetails = {
     hasGithub: false,
     hasFigma: true,
     developmentProcess: [
-      'Conducted stakeholder interviews with NSBE leadership to define requirements and key features',
+      'Conducted interviews with NSBE leadership to define requirements and key features',
       'Performed user research with chapter members to understand their needs and pain points',
       'Created wireframes and high-fidelity prototypes in Figma for desktop and mobile views',
       'Architected component structure using React with TypeScript for type safety',
