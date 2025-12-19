@@ -107,6 +107,13 @@ const About = () => {
               <CardDescription>My journey in the world of development</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="border-l-2 border-primary/30 pl-6">
+                  <h4 className="font-semibold text-lg">UI/UX Product Design Intern</h4>
+                  <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Present</p>
+                   <p className="text-muted-foreground">
+                 Designed and prototyped enterprise AI security platform UI in Figma, conducting user research and usability testing to create intuitive data visualization dashboards while collaborating cross-functionally on design systems and applying human-centered design principles.
+                   </p>
+                   </div>
               <div className="space-y-6">
                 <div className="border-l-2 border-primary/30 pl-6">
                   <h4 className="font-semibold text-lg">Research Assistant</h4>
@@ -132,13 +139,7 @@ const About = () => {
                   </p>
                 </div>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">UI/UX Product Design Intern</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Present</p>
-                   <p className="text-muted-foreground">
-                 Designed and prototyped enterprise AI security platform UI in Figma, conducting user research and usability testing to create intuitive data visualization dashboards while collaborating cross-functionally on design systems and applying human-centered design principles.
-                   </p>
-                   </div>
+                
               </div>
               
               <div className="mt-8 pt-6 border-t border-border/50">
