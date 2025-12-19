@@ -131,6 +131,17 @@ const About = () => {
                     Leading program development and coordinating events for the National Society of Black Engineers chapter.
                   </p>
                 </div>
+
+                <div className="border-l-2 border-primary/30 pl-6">
+                  <h4 className="font-semibold text-lg">UI/UX Product Design Intern</h4>
+                  <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Dec 2025 – Present</p>
+                  <ul className="text-muted-foreground space-y-2 list-disc list-inside">
+                    <li>Designed and prototyped user interfaces for enterprise AI data security platform, creating wireframes and interactive mockups for data visualization dashboards and workflow tools using Figma.</li>
+                    <li>Conducted user research and usability testing sessions to refine design of risk scoring dashboards and reports, translating complex technical requirements into intuitive interfaces for technical and non-technical users.</li>
+                    <li>Collaborated cross-functionally with engineering and product teams to develop design system and style guide, ensuring visual consistency across platform and marketing assets.</li>
+                    <li>Applied human-centered design principles to AI security and analytics visualization challenges, researching best practices to inform product design decisions for cybersecurity applications.</li>
+                  </ul>
+                </div>
               </div>
             </CardContent>
           </Card>
