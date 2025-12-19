@@ -35,7 +35,7 @@ const About = () => {
           {/* Profile Image and Info Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Profile Image - Left side */}
-            <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20">
+            <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20 mt-12">
               <img
                 src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
                 alt="Zebenai Melaku"
