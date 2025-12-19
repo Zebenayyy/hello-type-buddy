@@ -41,11 +41,11 @@ const AboutSection = () => {
               <article className="space-y-6">
                 <div className="space-y-4">
                   <p className="text-foreground text-xl leading-relaxed font-medium">
-                     Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
-
+                     Hi there! My name is Zebenai Melaku
                   </p>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                  I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+                 I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+ I'm an incoming Ui/UX intern at Hardshell and a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
 I love being creative and hopefully that shows throughout this website!
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
