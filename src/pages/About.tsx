@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -142,6 +142,15 @@ const About = () => {
                     <li>Applied human-centered design principles to AI security and analytics visualization challenges, researching best practices to inform product design decisions for cybersecurity applications.</li>
                   </ul>
                 </div>
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-border/50">
+                <a href="/lovable-uploads/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    <FileText className="w-5 h-5 mr-2" />
+                    View Full Resume
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>
