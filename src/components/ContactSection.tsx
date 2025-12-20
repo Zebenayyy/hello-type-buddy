@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -8,10 +8,37 @@ import { toast } from 'sonner';
 import { Send } from 'lucide-react';
 
 const ContactSection = () => {
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    toast.success('Thanks! Your message has been sent successfully.');
-    (e.currentTarget as HTMLFormElement).reset();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Web3Forms access key
+    formData.append('access_key', '169fba46-3beb-420b-98e6-5d92c6fd0a18');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success('Thanks! Your message has been sent successfully.');
+        form.reset();
+      } else {
+        toast.error(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      toast.error('Unable to send your message right now. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -38,6 +65,7 @@ const ContactSection = () => {
               </div>
 
               <form onSubmit={onSubmit} className="space-y-6">
+                {/* Name + Email */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-foreground font-medium">Name</Label>
@@ -62,6 +90,7 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
+                {/* Subject */}
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-foreground font-medium">Subject</Label>
                   <Input 
@@ -73,6 +102,7 @@ const ContactSection = () => {
                   />
                 </div>
                 
+                {/* Message */}
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-foreground font-medium">Message</Label>
                   <Textarea 
@@ -84,15 +114,19 @@ const ContactSection = () => {
                     className="bg-background/50 border-border/50 focus:border-primary resize-none"
                   />
                 </div>
+
+                {/* Optional: Status text (if you want inline feedback instead of only toast) */}
+                {/* <p className="text-sm text-muted-foreground h-5">{result}</p> */}
                 
                 <div className="text-center">
                   <Button 
                     type="submit" 
                     size="lg"
-                    className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </div>
               </form>
