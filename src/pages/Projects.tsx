@@ -146,7 +146,7 @@ const Projects = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Link to="/contact">
+                <Link to="/#contact">
                   <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
                     Get In Touch
                   </Button>
