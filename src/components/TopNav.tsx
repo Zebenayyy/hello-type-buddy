@@ -7,7 +7,6 @@ const TopNav = () => {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Me' },
     { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   return (
