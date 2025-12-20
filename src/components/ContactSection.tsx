@@ -7,35 +7,39 @@ import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { Send } from 'lucide-react';
 
-const ContactSection = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+ const onSubmit = async (event) => {
+    event.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
+    
+    const formData = new FormData(event.target);
+    
+    // Replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms access key
+    formData.append("access_key", "169fba46-3beb-420b-98e6-5d92c6fd0a18");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    // Web3Forms access key
-    formData.append('access_key', '169fba46-3beb-420b-98e6-5d92c6fd0a18');
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData,
-      });
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
 
-      const data = await response.json();
-
-      if (data.success) {
-        toast.success('Thanks! Your message has been sent successfully.');
-        form.reset();
+      if (res.success) {
+        console.log("Success", res);
+        setSubmitStatus("success");
+        event.target.reset(); // Clear the form
       } else {
-        toast.error(data.message || 'Something went wrong. Please try again.');
+        setSubmitStatus("error");
       }
     } catch (error) {
-      toast.error('Unable to send your message right now. Please try again later.');
+      console.error("Error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
