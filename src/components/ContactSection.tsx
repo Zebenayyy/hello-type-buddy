@@ -7,39 +7,47 @@ import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { Send } from 'lucide-react';
 
- const onSubmit = async (event) => {
+const ContactSection: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
-    const formData = new FormData(event.target);
-    
-    // Replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms access key
-    formData.append("access_key", "169fba46-3beb-420b-98e6-5d92c6fd0a18");
 
-    const object = Object.fromEntries(formData);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    // Web3Forms access key
+    formData.append('access_key', '169fba46-3beb-420b-98e6-5d92c6fd0a18');
+
+    const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: json
-      }).then((res) => res.json());
+        body: json,
+      }).then((r) => r.json());
 
       if (res.success) {
-        console.log("Success", res);
-        setSubmitStatus("success");
-        event.target.reset(); // Clear the form
+        console.log('Success', res);
+        setSubmitStatus('success');
+        toast.success('Thanks! Your message has been sent successfully.');
+        form.reset();
       } else {
-        setSubmitStatus("error");
+        setSubmitStatus('error');
+        toast.error(res.message || 'Something went wrong. Please try again.');
       }
     } catch (error) {
-      console.error("Error:", error);
-      setSubmitStatus("error");
+      console.error('Error:', error);
+      setSubmitStatus('error');
+      toast.error('Unable to send your message right now. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -119,8 +127,17 @@ import { Send } from 'lucide-react';
                   />
                 </div>
 
-                {/* Optional: Status text (if you want inline feedback instead of only toast) */}
-                {/* <p className="text-sm text-muted-foreground h-5">{result}</p> */}
+                {/* Optional inline status text */}
+                {submitStatus === 'success' && (
+                  <p className="text-sm text-emerald-500 text-center">
+                    Message sent successfully!
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-sm text-red-500 text-center">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
                 
                 <div className="text-center">
                   <Button 
