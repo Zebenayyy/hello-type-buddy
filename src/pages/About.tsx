@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, FileText, Briefcase, GraduationCap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
 import ProtoPieLogo from "@/assets/protopie-logo.png";
 import TopNav from '@/components/TopNav';
+import aboutPhoto1 from '@/assets/about-photo-1.jpg';
+import aboutPhoto2 from '@/assets/about-photo-2.jpg';
+import aboutPhoto3 from '@/assets/about-photo-3.jpg';
 
 const About = () => {
   const skills = {
@@ -62,6 +65,21 @@ const About = () => {
     },
   ];
 
+  const photos = [
+    { src: aboutPhoto1, alt: "Friends at dinner" },
+    { src: aboutPhoto2, alt: "NSBE conference group" },
+    { src: aboutPhoto3, alt: "Chicago Bean photo" },
+  ];
+
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [photos.length]);
+
   return (
     <div className="min-h-screen bg-background">
       <TopNav />
@@ -69,16 +87,36 @@ const About = () => {
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-5 gap-10 mb-16">
-          {/* Profile Image */}
+          {/* Profile Image Slideshow */}
           <div className="lg:col-span-2">
             <div className="sticky top-24">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
-                  alt="Zebenai Melaku"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative">
+                {photos.map((photo, index) => (
+                  <img
+                    key={index}
+                    src={photo.src}
+                    alt={photo.alt}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    loading="lazy"
+                  />
+                ))}
+                {/* Dots indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {photos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentPhotoIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentPhotoIndex 
+                          ? 'bg-white w-6' 
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                      aria-label={`View photo ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
