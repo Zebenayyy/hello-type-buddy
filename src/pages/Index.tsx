@@ -84,12 +84,6 @@ const Index = () => {
       <ProjectsSection />
       <ContactSection />
       
-      {/* Corner character indicator */}
-      <div className="fixed bottom-6 right-6 z-20">
-        <div className="bg-card/80 backdrop-blur-sm rounded-full p-3 shadow-lg border border-border/50">
-          <div className="w-8 h-8 bg-gradient-to-br from-character-yellow to-character-green rounded-full animate-pulse" />
-        </div>
-      </div>
     </div>
   );
 };
