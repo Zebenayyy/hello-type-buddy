@@ -59,86 +59,93 @@ const ProjectsSection = () => {
             const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
             return (
             <Link key={project.title} to={`/projects/${projectSlug}`}>
-              <Card className="group bg-card/80 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full"
-              >
-              {/* Project preview area */}
-              <div className="h-48 relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300" />
-              </div>
-              
-              <CardHeader className="pb-3">
-                <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-foreground group-hover:text-primary transition-colors text-xl font-bold leading-tight">
+              <Card className="group bg-card border-border/30 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer h-full overflow-hidden">
+                {/* Project preview area with overlay */}
+                <div className="h-52 relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                  
+                  {/* Status badge - top right */}
+                  <div className="absolute top-3 right-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-sm ${
+                      project.status === 'Live' ? 'bg-green-500/90 text-white' :
+                      project.status === 'In Progress' ? 'bg-amber-500/90 text-white' :
+                      'bg-primary/90 text-primary-foreground'
+                    }`}>
+                      {project.status}
+                    </span>
+                  </div>
+                </div>
+                
+                <CardHeader className="pb-2 pt-5">
+                  <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg font-bold leading-snug line-clamp-2">
                     {project.title}
                   </CardTitle>
-                  <span className={`px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 ${
-                    project.status === 'Live' ? 'bg-green-500/10 text-green-600 dark:text-green-400' :
-                    project.status === 'In Progress' ? 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400' :
-                    'bg-primary/10 text-primary'
-                  }`}>
-                    {project.status}
-                  </span>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
+                </CardHeader>
                 
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-2 py-1 bg-secondary/50 text-secondary-foreground rounded text-xs font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Action buttons */}
-                <div className="flex gap-2 pt-2">
-                  {project.hasGithub && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
-                      <Button size="sm" variant="outline" className="w-full">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
+                <CardContent className="space-y-4 pt-0">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+                  
+                  {/* Tech stack - more polished pills */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.slice(0, 4).map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2.5 py-1 bg-primary/8 text-primary/80 rounded-full text-xs font-medium border border-primary/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 4 && (
+                      <span className="px-2.5 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium">
+                        +{project.tags.length - 4}
+                      </span>
+                    )}
+                  </div>
+                  
+                  {/* Action buttons - cleaner design */}
+                  <div className="flex gap-2 pt-3">
+                    {project.hasGithub && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
+                        <Button size="sm" variant="outline" className="w-full h-10 border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </Button>
+                      </a>
+                    )}
+                    {project.hasDemo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'} onClick={(e) => e.stopPropagation()}>
+                        <Button size="sm" className="w-full h-10 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md hover:shadow-lg transition-all">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Site
+                        </Button>
+                      </a>
+                    )}
+                    {!project.hasDemo && !project.hasGithub && (
+                      <Button size="sm" variant="outline" className="w-full h-10 border-border hover:border-primary/50 hover:bg-primary/5">
+                        View Case Study
                       </Button>
-                    </a>
-                  )}
-                  {project.hasDemo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'} onClick={(e) => e.stopPropagation()}>
-                      <Button size="sm" className={`bg-primary hover:bg-primary/90 w-full`}>
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Site
-                      </Button>
-                    </a>
-                  )}
-                  {!project.hasDemo && !project.hasGithub && (
-                    <Button size="sm" variant="outline" className="w-full">
-                      View Case Study
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
+                    )}
+                  </div>
+                </CardContent>
               </Card>
             </Link>
             );
           })}
         </div>
         
-        {/* Call to action */}
-        <div className="text-center mt-12">
+        {/* Call to action - more prominent */}
+        <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Interested in seeing more of my work?</p>
           <Link to="/projects">
-            <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
+            <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8">
               View All Projects
             </Button>
           </Link>
