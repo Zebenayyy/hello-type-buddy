@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import beachSunset from '@/assets/beach-sunset.jpg';
+import nsbeGroup from '@/assets/nsbe-group.png';
 
 const AboutSection = () => {
   return (
@@ -39,11 +40,14 @@ const AboutSection = () => {
             </h2>
           </div>
 
-          {/* Journey Badge */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-primary/10 border border-primary/20 p-4 flex flex-col items-center justify-center text-center">
-            <span className="text-xs text-muted-foreground mb-1">MY</span>
-            <span className="font-bold text-primary">DESIGN</span>
-            <span className="font-bold text-primary">JOURNEY</span>
+          {/* NSBE Group Image */}
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden">
+            <img
+              src={nsbeGroup}
+              alt="NSBE group photo"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
 
           {/* Bio Card - Spans 2 columns */}
@@ -79,13 +83,6 @@ const AboutSection = () => {
                 </span>
               ))}
             </div>
-          </div>
-
-          {/* Fun Fact */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-character-yellow/20 p-4 flex items-center justify-center">
-            <p className="text-center text-sm font-medium text-foreground">
-              I also crochet!
-            </p>
           </div>
 
         </div>
