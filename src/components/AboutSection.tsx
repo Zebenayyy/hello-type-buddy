@@ -51,17 +51,17 @@ const AboutSection = () => {
           </div>
 
           {/* Bio Card - Spans 2 columns */}
-          <div className="col-span-2 md:col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-4 flex flex-row items-center justify-between gap-4 overflow-hidden">
+          <div className="col-span-2 md:col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-5 flex flex-row items-center justify-between gap-4 overflow-hidden">
             <div className="flex-1 min-w-0">
-              <p className="text-foreground font-semibold text-base mb-1">
+              <p className="text-foreground font-bold text-xl md:text-2xl mb-2">
                 Hi! I'm Zebenai Melaku
               </p>
-              <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed line-clamp-3">
                 I'm a third-year Computer Engineering student at UVA passionate about human-computer interactions and creating user-friendly digital experiences.
               </p>
             </div>
             <Link to="/about" className="flex-shrink-0">
-              <Button variant="outline" size="sm" className="group">
+              <Button variant="outline" size="default" className="group">
                 Learn More
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
