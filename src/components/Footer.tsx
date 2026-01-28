@@ -2,12 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import footerCharacter from '@/assets/footer-character.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-primary to-primary/90 text-white">
+    <footer className="relative bg-gradient-to-r from-primary to-primary/90 text-white">
+      {/* Character peeking from behind the footer */}
+      <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+        <img 
+          src={footerCharacter} 
+          alt="Cute character peeking"
+          className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-lg"
+        />
+      </div>
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-10">
           {/* Brand */}
