@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import beachSunset from '@/assets/beach-sunset.jpg';
 
 const AboutSection = () => {
   return (
@@ -20,16 +21,21 @@ const AboutSection = () => {
             />
           </div>
 
-          {/* Decorative Image */}
-          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden bg-gradient-to-br from-character-yellow/30 to-character-green/30 flex items-center justify-center">
-            <span className="text-4xl">🎨</span>
+          {/* Beach Sunset Image */}
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden">
+            <img
+              src={beachSunset}
+              alt="Beach sunset"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
 
           {/* Title Card */}
           <div className="col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold">
               ABOUT<br />
-              <span className="text-gradient">ME ✦</span>
+              <span className="text-gradient">ME</span>
             </h2>
           </div>
 
@@ -44,7 +50,7 @@ const AboutSection = () => {
           <div className="col-span-2 md:col-span-2 row-span-2 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-between">
             <div className="space-y-3">
               <p className="text-foreground font-semibold text-lg">
-                Hi! I'm Zebenai Melaku 👋
+                Hi! I'm Zebenai Melaku
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 I'm a third-year Computer Engineering student at UVA passionate about human-computer interactions. I thrive on creating intuitive, visually compelling, and user-friendly digital experiences.
@@ -78,7 +84,7 @@ const AboutSection = () => {
           {/* Fun Fact */}
           <div className="col-span-1 row-span-1 rounded-2xl bg-character-yellow/20 p-4 flex items-center justify-center">
             <p className="text-center text-sm font-medium text-foreground">
-              🧶 I also crochet!
+              I also crochet!
             </p>
           </div>
 
