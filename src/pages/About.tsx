@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ArrowLeft, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
+import ProtoPieLogo from "@/assets/protopie-logo.png";
 
 const About = () => {
   return (
@@ -127,7 +128,7 @@ const About = () => {
                           <span className="text-sm">Figma</span>
                         </div>
                         <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/nickvdw/protopie-icons/protopie-icon.svg" alt="ProtoPie" className="w-5 h-5" />
+                          <img src={ProtoPieLogo} alt="ProtoPie" className="w-5 h-5" />
                           <span className="text-sm">ProtoPie</span>
                         </div>
                       </div>
