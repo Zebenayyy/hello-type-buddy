@@ -81,7 +81,7 @@ const Projects = () => {
               const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
               return (
                 <Link key={index} to={`/projects/${projectSlug}`}>
-                  <Card className="animate-fade-in hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full" 
+                  <Card className="animate-fade-in hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full" 
                         style={{animationDelay: `${index * 0.1}s`}}>
                     <CardHeader>
                       <div className="mb-4">
@@ -91,8 +91,13 @@ const Projects = () => {
                           className="w-full h-48 object-cover rounded-lg"
                         />
                       </div>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription>{project.description}</CardDescription>
+                      <div className="flex items-start justify-between gap-2">
+                        <CardTitle className="text-xl font-bold leading-tight">{project.title}</CardTitle>
+                        <span className="px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 bg-primary/10 text-primary">
+                          {project.tech.includes('Figma') ? 'UX Design' : 'Development'}
+                        </span>
+                      </div>
+                      <CardDescription className="mt-2">{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
@@ -112,7 +117,7 @@ const Projects = () => {
                         {/* Action Buttons */}
                         <div className="flex gap-2">
                           {project.hasGithub && (
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
                               <Button variant="outline" size="sm" className="w-full">
                                 <Github className="w-4 h-4 mr-2" />
                                 Code
@@ -120,12 +125,17 @@ const Projects = () => {
                             </a>
                           )}
                           {project.hasDemo && (
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? "flex-1" : "w-full"}>
-                              <Button variant="outline" size="sm" className="w-full">
+                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? "flex-1" : "w-full"} onClick={(e) => e.stopPropagation()}>
+                              <Button size="sm" className="w-full">
                                 <ExternalLink className="w-4 h-4 mr-2" />
-                                Link
+                                Live Site
                               </Button>
                             </a>
+                          )}
+                          {!project.hasDemo && !project.hasGithub && (
+                            <Button variant="outline" size="sm" className="w-full">
+                              View Case Study
+                            </Button>
                           )}
                         </div>
                       </div>
