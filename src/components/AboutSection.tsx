@@ -71,20 +71,6 @@ const AboutSection = () => {
             </Link>
           </div>
 
-          {/* Skills Preview */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-gradient-to-br from-character-green/20 to-character-yellow/20 p-4 flex flex-col justify-center">
-            <div className="flex flex-wrap gap-1">
-              {['React', 'Figma', 'UI/UX'].map((skill) => (
-                <span 
-                  key={skill}
-                  className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
