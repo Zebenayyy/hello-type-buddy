@@ -41,20 +41,20 @@ const Index = () => {
             {/* Welcome content */}
             <div className={`text-center lg:text-left ${showContent ? 'animate-fade-in' : 'opacity-0'}`}>
               <div className="mb-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                  <span className="text-gradient">Aspiring UI/UX Designer</span>
+                <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                  <span className="text-gradient">Hi!</span>
                 </h1>
-                <div className="text-xl md:text-2xl text-muted-foreground font-medium">
+                <div className="text-2xl md:text-3xl text-foreground font-medium">
                   <TypingEffect 
-                    text="I design human-centered digital experiences" 
-                    speed={60}
+                    text="Welcome to my portfolio" 
+                    speed={80}
                     className="block"
                   />
                 </div>
               </div>
               
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
-                Backed by research, prototyping, and clean code. Currently studying Computer Engineering at UVA with a passion for human-computer interaction.
+              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+                I'm a student currently attending the University of Virginia who loves bringing cute ideas to life
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
