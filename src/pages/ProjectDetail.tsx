@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import TopNav from '@/components/TopNav';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
@@ -12,7 +13,7 @@ const projectDetails = {
   'nsbe-uva-chapter-website': {
     title: 'NSBE UVA Chapter Website',
     description: 'Comprehensive website for 100+ NSBE members built with modern web technologies and responsive design.',
-    longDescription: 'Designed and developed a modern, fully responsive website for the University of Virginia\'s National Society of Black Engineers (NSBE) chapter, serving over 100 active members. The website acts as a central hub for chapter information, event management, member resources, and community engagement.',
+    longDescription: 'Designed and developed a modern, fully responsive website for the University of Virginia\'s National Society of Black Engineers (NSBE) chapter, serving over 100 active members. The website acts as a central hub for chapter information, event management, member resources, and community engagement. Built with React and TypeScript, it features a clean, professional interface that showcases the organization\'s mission, leadership team, upcoming events, and opportunities for students interested in engineering and technology.',
     technologies: ['Vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS', 'React Router'],
     status: 'In Progress',
     image: NSBE_Website,
@@ -69,7 +70,7 @@ const projectDetails = {
   'hidden-guide-location-based-mobile-app': {
     title: 'Hidden Guide: Location-Based Mobile App',
     description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
-    longDescription: 'Hidden Guide is an innovative location-based mobile application designed to help users discover hidden gems, local attractions, and off-the-beaten-path destinations in their area.',
+    longDescription: 'Hidden Guide is an innovative location-based mobile application designed to help users discover hidden gems, local attractions, and off-the-beaten-path destinations in their area. Built with React Native for cross-platform compatibility, the app leverages Firebase for real-time data synchronization, secure user authentication, and instant push notifications. Users can share their own discoveries, view curated recommendations, and receive location-based alerts when they\'re near interesting places. The app creates a community-driven platform for explorers and locals to share unique experiences.',
     technologies: ['React Native', 'Firebase', 'Firebase Authentication', 'Firestore', 'Cloud Messaging', 'React Navigation', 'Google Maps API'],
     status: 'In Progress',
     image: Hidden,
@@ -137,13 +138,11 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <TopNav />
-        <div className="pt-32 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-3xl mb-4">Project Not Found</h1>
-            <Link to="/projects">
-              <Button className="rounded-full">Back to Projects</Button>
-            </Link>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+          <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
+          <Link to="/projects">
+            <Button>Back to Projects</Button>
+          </Link>
         </div>
       </div>
     );
@@ -153,143 +152,147 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <TopNav />
       
-      <div className="pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Back button */}
-          <Link to="/projects">
-            <Button variant="ghost" className="mb-8 -ml-4">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Projects
-            </Button>
-          </Link>
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background -z-10" />
+      
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Back button */}
+        <Link to="/projects" className="inline-block mb-6">
+          <Button variant="ghost" size="sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Projects
+          </Button>
+        </Link>
 
-          {/* Header */}
-          <div className="mb-8">
-            <div className="flex flex-wrap items-center gap-4 mb-4">
-              <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight">
-                {project.title}
-              </h1>
-              <span className={`px-4 py-2 rounded-full text-sm font-medium ${
-                project.status === 'Completed' ? 'bg-primary text-primary-foreground' :
-                'bg-accent text-accent-foreground'
-              }`}>
-                {project.status}
-              </span>
-            </div>
-            <p className="text-xl text-muted-foreground max-w-3xl">{project.description}</p>
+        {/* Project header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-4 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gradient">{project.title}</h1>
+            <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+              project.status === 'Live' ? 'bg-green-500 text-white' :
+              project.status === 'In Progress' ? 'bg-yellow-500 text-white' :
+              'bg-primary/20 text-primary'
+            }`}>
+              {project.status}
+            </span>
           </div>
-
+          <p className="text-xl text-muted-foreground mb-6">{project.description}</p>
+          
           {/* Action buttons */}
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap gap-4">
             {project.hasGithub && 'githubUrl' in project && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="rounded-full px-6">
+                <Button size="lg" variant="outline">
                   <Github className="w-5 h-5 mr-2" />
                   View Code
-                  <ArrowUpRight className="ml-2 w-4 h-4" />
                 </Button>
               </a>
             )}
             {project.hasDemo && 'demoUrl' in project && (
               <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                <Button className="rounded-full bg-primary hover:bg-primary/90 px-6">
+                <Button size="lg">
                   <ExternalLink className="w-5 h-5 mr-2" />
                   View Website
-                  <ArrowUpRight className="ml-2 w-4 h-4" />
                 </Button>
               </a>
             )}
             {'hasFigma' in project && project.hasFigma && 'figmaUrl' in project && (
               <a href={project.figmaUrl as string} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="rounded-full px-6">
+                <Button size="lg" variant="outline">
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  View Figma
-                  <ArrowUpRight className="ml-2 w-4 h-4" />
+                  View First Draft (Figma)
                 </Button>
               </a>
             )}
           </div>
+        </div>
 
-          {/* Project image */}
-          <div className="mb-12">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-64 md:h-[500px] object-cover"
-              />
-            </div>
-          </div>
+        {/* Project image */}
+        <div className="mb-8">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
 
-          {/* Content grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {/* Technologies */}
-            <div className="bg-card rounded-3xl p-8 shadow-lg">
-              <h2 className="font-display font-bold text-xl mb-4">Technologies Used</h2>
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* Technologies used */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Technologies Used</CardTitle>
+            </CardHeader>
+            <CardContent>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span 
                     key={tech}
-                    className="px-3 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+                    className="px-3 py-1 bg-secondary/50 text-secondary-foreground rounded-full text-sm font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            {/* Overview */}
-            <div className="bg-card rounded-3xl p-8 shadow-lg">
-              <h2 className="font-display font-bold text-xl mb-4">Project Overview</h2>
+          {/* Project overview */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Project Overview</CardTitle>
+            </CardHeader>
+            <CardContent>
               <p className="text-muted-foreground leading-relaxed">
                 {project.longDescription}
               </p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
+        </div>
 
-          {/* Development process */}
-          <div className="bg-card rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="font-display font-bold text-xl mb-6">Development Process</h2>
-            <div className="space-y-4">
+        {/* Development process */}
+        <Card className="mt-8">
+          <CardHeader>
+            <CardTitle>Development Process</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-3">
               {project.developmentProcess.map((step, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <li key={index} className="flex items-start gap-3">
+                  <span className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0 mt-0.5">
                     {index + 1}
                   </span>
-                  <span className="text-muted-foreground pt-1">{step}</span>
-                </div>
+                  <span className="text-muted-foreground">{step}</span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </CardContent>
+        </Card>
 
-          {/* Challenges */}
-          <div className="bg-foreground text-background rounded-3xl p-8 mb-12">
-            <h2 className="font-display font-bold text-xl mb-6">Key Challenges</h2>
-            <div className="space-y-3">
+        {/* Challenges */}
+        <Card className="mt-8">
+          <CardHeader>
+            <CardTitle>Key Challenges</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2">
               {project.challenges.map((challenge, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2.5"></span>
-                  <span className="opacity-80">{challenge}</span>
-                </div>
+                <li key={index} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-3"></span>
+                  <span className="text-muted-foreground">{challenge}</span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </CardContent>
+        </Card>
 
-          {/* Call to action */}
-          <div className="bg-card rounded-3xl p-8 md:p-12 text-center shadow-lg">
-            <h2 className="font-display font-bold text-3xl mb-4">
-              Interested in Working Together?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Let's create something amazing together!
-            </p>
-            <Link to="/#contact">
-              <Button className="rounded-full bg-primary hover:bg-primary/90 px-8">
-                Get In Touch
-                <ArrowUpRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
+        {/* Call to action */}
+        <div className="text-center mt-12 pt-8 border-t">
+          <p className="text-muted-foreground mb-6">Interested in working together?</p>
+          <Link to="/contact">
+            <Button size="lg" variant="outline">
+              Get In Touch
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
