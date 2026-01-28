@@ -10,10 +10,10 @@ const AboutSection = () => {
     <section id="about" className="scroll-mt-24 relative">
       <div className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
           
           {/* Profile Image - Large */}
-          <div className="col-span-1 md:col-span-2 row-span-2 rounded-2xl overflow-hidden">
+          <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden">
             <img
               src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
               alt="Zebenai Melaku"
@@ -33,7 +33,7 @@ const AboutSection = () => {
           </div>
 
           {/* Title Card */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-center">
+          <div className="col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold">
               ABOUT<br />
               <span className="text-gradient">ME</span>
@@ -41,7 +41,7 @@ const AboutSection = () => {
           </div>
 
           {/* NSBE Group Image */}
-          <div className="col-span-2 row-span-1 rounded-2xl overflow-hidden">
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden">
             <img
               src={nsbeGroup}
               alt="NSBE group photo"
