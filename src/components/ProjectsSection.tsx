@@ -46,56 +46,57 @@ const ProjectsSection = () => {
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-character-green/5 to-background -z-10" />
       
-      <div className="max-w-6xl mx-auto px-4 py-20 lg:py-32">
-        <header className="text-center mb-16">
+      <div className="max-w-5xl mx-auto px-4 py-20 lg:py-32">
+        <header className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and creative endeavors
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.slice(0, 2).map((project) => {
+        <div className="space-y-6">
+          {projects.slice(0, 2).map((project, index) => {
             const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const isReversed = index % 2 === 1;
+            
             return (
               <Link key={project.title} to={`/projects/${projectSlug}`}>
-                <Card className="group bg-card border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full overflow-hidden">
+                <div className={`group flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} bg-card rounded-2xl border border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden`}>
                   {/* Project image */}
-                  <div className="h-52 relative overflow-hidden">
+                  <div className="md:w-1/2 h-56 md:h-72 relative overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     {/* Status badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                        project.status === 'Live' ? 'bg-green-500/90 text-white' :
-                        project.status === 'In Progress' ? 'bg-amber-500/90 text-white' :
-                        'bg-primary/90 text-primary-foreground'
+                    <div className="absolute top-4 left-4">
+                      <span className={`px-3 py-1.5 rounded-full text-xs font-semibold shadow-md ${
+                        project.status === 'Live' ? 'bg-green-500 text-white' :
+                        project.status === 'In Progress' ? 'bg-amber-500 text-white' :
+                        'bg-primary text-primary-foreground'
                       }`}>
                         {project.status}
                       </span>
                     </div>
                   </div>
                   
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                  {/* Content */}
+                  <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                       {project.title}
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-4 pt-0">
-                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    </h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed mb-5">
                       {project.description}
                     </p>
                     
                     {/* Tech stack */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.slice(0, 5).map((tag) => (
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
                         <span 
                           key={tag}
-                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md text-xs font-medium"
+                          className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
                         >
                           {tag}
                         </span>
@@ -103,31 +104,26 @@ const ProjectsSection = () => {
                     </div>
                     
                     {/* Action buttons */}
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex gap-3">
                       {project.hasGithub && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
-                          <Button size="sm" variant="outline" className="w-full">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                          <Button variant="outline" className="h-10 px-5">
                             <Github className="w-4 h-4 mr-2" />
                             Code
                           </Button>
                         </a>
                       )}
                       {project.hasDemo && (
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'} onClick={(e) => e.stopPropagation()}>
-                          <Button size="sm" className="w-full">
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                          <Button className="h-10 px-5">
                             <ExternalLink className="w-4 h-4 mr-2" />
                             Live Site
                           </Button>
                         </a>
                       )}
-                      {!project.hasDemo && !project.hasGithub && (
-                        <Button size="sm" variant="outline" className="w-full">
-                          View Details
-                        </Button>
-                      )}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </Link>
             );
           })}
