@@ -69,21 +69,21 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300" />
-                <div className="absolute top-4 right-4">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    project.status === 'Live' ? 'bg-character-green text-white' :
-                    project.status === 'In Progress' ? 'bg-character-yellow text-white' :
-                    'bg-primary/20 text-primary'
+              </div>
+              
+              <CardHeader className="pb-3">
+                <div className="flex items-start justify-between gap-2">
+                  <CardTitle className="text-foreground group-hover:text-primary transition-colors text-xl font-bold leading-tight">
+                    {project.title}
+                  </CardTitle>
+                  <span className={`px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 ${
+                    project.status === 'Live' ? 'bg-green-500/10 text-green-600 dark:text-green-400' :
+                    project.status === 'In Progress' ? 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400' :
+                    'bg-primary/10 text-primary'
                   }`}>
                     {project.status}
                   </span>
                 </div>
-              </div>
-              
-              <CardHeader className="pb-3">
-                <CardTitle className="text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
-                </CardTitle>
               </CardHeader>
               
               <CardContent className="space-y-4">
@@ -106,7 +106,7 @@ const ProjectsSection = () => {
                 {/* Action buttons */}
                 <div className="flex gap-2 pt-2">
                   {project.hasGithub && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
                       <Button size="sm" variant="outline" className="w-full">
                         <Github className="w-4 h-4 mr-2" />
                         Code
@@ -114,12 +114,17 @@ const ProjectsSection = () => {
                     </a>
                   )}
                   {project.hasDemo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'}>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'} onClick={(e) => e.stopPropagation()}>
                       <Button size="sm" className={`bg-primary hover:bg-primary/90 w-full`}>
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Link
+                        Live Site
                       </Button>
                     </a>
+                  )}
+                  {!project.hasDemo && !project.hasGithub && (
+                    <Button size="sm" variant="outline" className="w-full">
+                      View Case Study
+                    </Button>
                   )}
                 </div>
               </CardContent>

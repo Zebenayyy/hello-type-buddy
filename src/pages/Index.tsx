@@ -4,6 +4,7 @@ import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
 import TopNav from '@/components/TopNav';
 import AboutSection from '@/components/AboutSection';
+import DesignProcessSection from '@/components/DesignProcessSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -40,20 +41,23 @@ const Index = () => {
             {/* Welcome content */}
             <div className={`text-center lg:text-left ${showContent ? 'animate-fade-in' : 'opacity-0'}`}>
               <div className="mb-6">
-                <h1 className="text-5xl md:text-6xl font-bold mb-4">
-                  <span className="text-gradient">Hi!</span>
+                <p className="text-primary font-medium mb-2">Hi, I'm Zebenai! 👋</p>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                  <span className="text-gradient">UI/UX Designer</span>
+                  <span className="text-foreground"> & </span>
+                  <span className="text-gradient">Frontend Developer</span>
                 </h1>
-                <div className="text-2xl md:text-3xl text-foreground font-medium">
+                <div className="text-xl md:text-2xl text-muted-foreground font-medium">
                   <TypingEffect 
-                    text="Welcome to my portfolio" 
-                    speed={80}
+                    text="I design human-centered digital experiences" 
+                    speed={60}
                     className="block"
                   />
                 </div>
               </div>
               
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                I'm a student currently attending the University of Virginia who loves bringing cute ideas to life {'<3'}
+              <p className="text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
+                Backed by research, prototyping, and clean code. Currently studying Computer Engineering at UVA with a passion for human-computer interaction.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -80,6 +84,7 @@ const Index = () => {
       </section>
       
       <AboutSection />
+      <DesignProcessSection />
       <ProjectsSection />
       <ContactSection />
       
