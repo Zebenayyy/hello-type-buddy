@@ -73,7 +73,7 @@ const Projects = () => {
               <span className="text-gradient">My Projects</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my work and the technologies I love to use
+              A collection of projects I've built over the past year
             </p>
           </div>
 
