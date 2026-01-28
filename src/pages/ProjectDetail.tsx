@@ -315,7 +315,7 @@ const ProjectDetail = () => {
 
         {/* UX Storytelling: Problem → Goal → Outcome */}
         {'problem' in project && (
-          <section className="space-y-6">
+          <section className="space-y-8">
             <div className="text-center space-y-2">
               <h2 className="text-3xl font-bold text-foreground">The Story</h2>
               <p className="text-muted-foreground">Understanding the problem and designing the solution</p>
@@ -323,46 +323,46 @@ const ProjectDetail = () => {
             
             <div className="grid md:grid-cols-3 gap-6">
               {/* Problem */}
-              <div className="bg-gradient-to-br from-red-500/10 to-red-600/5 backdrop-blur-sm rounded-2xl border border-red-500/20 p-6">
+              <div className="bg-red-50 dark:bg-red-950/30 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center">
                     <Target className="w-5 h-5 text-red-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground">Problem</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-sm">{project.problem}</p>
+                <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
               </div>
               
               {/* Goal */}
-              <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/5 backdrop-blur-sm rounded-2xl border border-yellow-500/20 p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/50 rounded-full flex items-center justify-center">
                     <Lightbulb className="w-5 h-5 text-yellow-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground">Goal</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-sm">{project.goal}</p>
+                <p className="text-muted-foreground leading-relaxed">{project.goal}</p>
               </div>
               
               {/* Outcome */}
-              <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl border border-green-500/20 p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-green-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground">Outcome</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-sm">{project.outcome}</p>
+                <p className="text-muted-foreground leading-relaxed">{project.outcome}</p>
               </div>
             </div>
 
             {/* Metrics */}
             {'metrics' in project && (
-              <div className="flex flex-wrap justify-center gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-3 pt-2">
                 {(project.metrics as string[]).map((metric, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20"
+                    className="px-5 py-2.5 bg-transparent text-primary rounded-full text-sm font-medium border-2 border-primary/30"
                   >
                     {metric}
                   </span>
