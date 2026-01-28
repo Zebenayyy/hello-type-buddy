@@ -51,7 +51,7 @@ const AboutSection = () => {
           </div>
 
           {/* Bio Card - Spans 2 columns */}
-          <div className="col-span-2 md:col-span-2 row-span-2 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-between">
+          <div className="col-span-2 md:col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-4 flex flex-col justify-between">
             <div className="space-y-3">
               <p className="text-foreground font-semibold text-lg">
                 Hi! I'm Zebenai Melaku
