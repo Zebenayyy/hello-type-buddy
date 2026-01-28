@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, ExternalLink, Github, Target, Lightbulb, TrendingUp } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import TopNav from '@/components/TopNav';
+import Footer from '@/components/Footer';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
 import Hidden from '@/assets/hidden-guide-app.png';
@@ -422,6 +423,7 @@ const ProjectDetail = () => {
           </Link>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };

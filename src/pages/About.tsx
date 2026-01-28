@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
 import ProtoPieLogo from "@/assets/protopie-logo.png";
 import TopNav from '@/components/TopNav';
+import Footer from '@/components/Footer';
 import aboutPhoto1 from '@/assets/about-photo-1.jpg';
 import aboutPhoto2 from '@/assets/about-photo-2.jpg';
 import aboutPhoto3 from '@/assets/about-photo-3.jpg';
@@ -246,6 +247,7 @@ const About = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
