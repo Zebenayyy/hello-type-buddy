@@ -54,14 +54,14 @@ const ProjectsSection = () => {
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => {
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.slice(0, 2).map((project) => {
             const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
             return (
               <Link key={project.title} to={`/projects/${projectSlug}`}>
                 <Card className="group bg-card border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full overflow-hidden">
                   {/* Project image */}
-                  <div className="h-48 relative overflow-hidden">
+                  <div className="h-52 relative overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -80,31 +80,26 @@ const ProjectsSection = () => {
                   </div>
                   
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-lg font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                       {project.title}
                     </CardTitle>
                   </CardHeader>
                   
                   <CardContent className="space-y-4 pt-0">
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
                     
                     {/* Tech stack */}
                     <div className="flex flex-wrap gap-1.5">
-                      {project.tags.slice(0, 4).map((tag) => (
+                      {project.tags.slice(0, 5).map((tag) => (
                         <span 
                           key={tag}
-                          className="px-2 py-1 bg-secondary text-secondary-foreground rounded-md text-xs font-medium"
+                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md text-xs font-medium"
                         >
                           {tag}
                         </span>
                       ))}
-                      {project.tags.length > 4 && (
-                        <span className="px-2 py-1 bg-muted text-muted-foreground rounded-md text-xs">
-                          +{project.tags.length - 4}
-                        </span>
-                      )}
                     </div>
                     
                     {/* Action buttons */}
@@ -138,9 +133,8 @@ const ProjectsSection = () => {
           })}
         </div>
         
-        {/* Call to action */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">Interested in seeing more of my work?</p>
+        {/* View All Projects */}
+        <div className="text-center mt-12">
           <Link to="/projects">
             <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8">
               View All Projects
