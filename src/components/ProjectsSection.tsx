@@ -49,7 +49,7 @@ const ProjectsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold">
               PORTFOLIO<span className="text-gradient">✦</span>
             </h2>
-            <p className="text-muted-foreground mt-2">2023-2025</p>
+            <p className="text-muted-foreground mt-2">2024-2025</p>
           </div>
         </div>
 
