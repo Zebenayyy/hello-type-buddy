@@ -76,24 +76,78 @@ const About = () => {
                   <CardDescription>The tools I use to bring ideas to life</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div>
-                      <h4 className="font-semibold mb-2">Frontend</h4>
-                      <p className="text-muted-foreground text-sm">
-                        React, TypeScript, Tailwind CSS, Next.js
-                      </p>
+                      <h4 className="font-semibold mb-3">Frontend</h4>
+                      <div className="flex flex-wrap gap-3">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-5 h-5" />
+                          <span className="text-sm">React</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-5 h-5" />
+                          <span className="text-sm">TypeScript</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="w-5 h-5" />
+                          <span className="text-sm">Tailwind CSS</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-5 h-5" />
+                          <span className="text-sm">Next.js</span>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Backend</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Node.js, Python, PostgreSQL, Supabase
-                      </p>
+                      <h4 className="font-semibold mb-3">Backend</h4>
+                      <div className="flex flex-wrap gap-3">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-5 h-5" />
+                          <span className="text-sm">Node.js</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-5 h-5" />
+                          <span className="text-sm">Python</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-5 h-5" />
+                          <span className="text-sm">PostgreSQL</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" className="w-5 h-5" />
+                          <span className="text-sm">Supabase</span>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Tools</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Git, VS Code, Figma, Docker
-                      </p>
+                      <h4 className="font-semibold mb-3">Design Tools</h4>
+                      <div className="flex flex-wrap gap-3">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="w-5 h-5" />
+                          <span className="text-sm">Figma</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/nickvdw/protopie-icons/protopie-icon.svg" alt="ProtoPie" className="w-5 h-5" />
+                          <span className="text-sm">ProtoPie</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">Tools</h4>
+                      <div className="flex flex-wrap gap-3">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-5 h-5" />
+                          <span className="text-sm">Git</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-5 h-5" />
+                          <span className="text-sm">VS Code</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
+                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-5 h-5" />
+                          <span className="text-sm">Docker</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
