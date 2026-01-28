@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Zebenai Melaku</span>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
-              CS student at UVA passionate about creating intuitive digital experiences through thoughtful design and code.
+              Computer Engineering student at UVA passionate about creating intuitive digital experiences through thoughtful design and code.
             </p>
             <div className="flex gap-3">
               <a 
