@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, FileText, Briefcase, GraduationCap, Users } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileText, Briefcase, GraduationCap, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
 import ProtoPieLogo from "@/assets/protopie-logo.png";
@@ -66,6 +66,7 @@ const About = () => {
   ];
 
   const photos = [
+    { src: "/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png", alt: "Zebenai Melaku headshot" },
     { src: aboutPhoto1, alt: "Friends at dinner" },
     { src: aboutPhoto2, alt: "NSBE conference group" },
     { src: aboutPhoto3, alt: "Chicago Bean photo" },
@@ -73,12 +74,13 @@ const About = () => {
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [photos.length]);
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,6 +104,21 @@ const About = () => {
                     loading="lazy"
                   />
                 ))}
+                {/* Arrow Navigation */}
+                <button
+                  onClick={prevPhoto}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center transition-colors"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="w-6 h-6 text-white" />
+                </button>
+                <button
+                  onClick={nextPhoto}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center transition-colors"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="w-6 h-6 text-white" />
+                </button>
                 {/* Dots indicator */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {photos.map((_, index) => (
@@ -145,7 +162,7 @@ const About = () => {
                   I love being creative and hopefully that shows throughout this website!
                 </p>
                 <p>
-                  When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :)
+                  When I'm not coding or researching, you'll probably find me crocheting, drawing, traveling or volunteering for a random event and trying to be as involved as I can in my community :)
                 </p>
               </div>
             </div>
