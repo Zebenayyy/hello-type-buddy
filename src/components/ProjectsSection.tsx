@@ -54,24 +54,23 @@ const ProjectsSection = () => {
           </p>
         </header>
 
-        <div className="space-y-6">
-          {projects.slice(0, 2).map((project, index) => {
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.slice(0, 2).map((project) => {
             const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-            const isReversed = index % 2 === 1;
             
             return (
               <Link key={project.title} to={`/projects/${projectSlug}`}>
-                <div className={`group flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} bg-card rounded-2xl border border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden`}>
+                <div className="group bg-card rounded-2xl border border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden h-full flex flex-col">
                   {/* Project image */}
-                  <div className="md:w-1/2 h-56 md:h-72 relative overflow-hidden">
+                  <div className="h-48 relative overflow-hidden flex-shrink-0">
                     <img 
                       src={project.image} 
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     {/* Status badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1.5 rounded-full text-xs font-semibold shadow-md ${
+                    <div className="absolute top-3 left-3">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-md ${
                         project.status === 'Live' ? 'bg-green-500 text-white' :
                         project.status === 'In Progress' ? 'bg-amber-500 text-white' :
                         'bg-primary text-primary-foreground'
@@ -82,21 +81,21 @@ const ProjectsSection = () => {
                   </div>
                   
                   {/* Content */}
-                  <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
                       {project.title}
                     </h3>
                     
-                    <p className="text-muted-foreground leading-relaxed mb-5">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
                       {project.description}
                     </p>
                     
                     {/* Tech stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
                       {project.tags.map((tag) => (
                         <span 
                           key={tag}
-                          className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
                         >
                           {tag}
                         </span>
@@ -104,10 +103,10 @@ const ProjectsSection = () => {
                     </div>
                     
                     {/* Action buttons */}
-                    <div className="flex gap-3">
+                    <div className="flex gap-2">
                       {project.hasGithub && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <Button variant="outline" className="h-10 px-5">
+                          <Button size="sm" variant="outline">
                             <Github className="w-4 h-4 mr-2" />
                             Code
                           </Button>
@@ -115,7 +114,7 @@ const ProjectsSection = () => {
                       )}
                       {project.hasDemo && (
                         <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <Button className="h-10 px-5">
+                          <Button size="sm">
                             <ExternalLink className="w-4 h-4 mr-2" />
                             Live Site
                           </Button>
