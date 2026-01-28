@@ -9,6 +9,16 @@ import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
 import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
 import Cura from '@/components/Screenshot 2025-09-15 153032.png';
 
+// NSBE Website screenshots
+import NSBEHomeHero from '@/assets/nsbe-home-hero.png';
+import NSBEHomeCards from '@/assets/nsbe-home-cards.png';
+import NSBEHomeCommunity from '@/assets/nsbe-home-community.png';
+import NSBEAbout from '@/assets/nsbe-about.png';
+import NSBESponsorship from '@/assets/nsbe-sponsorship.png';
+import NSBEAlumni from '@/assets/nsbe-alumni.png';
+import NSBEMembership from '@/assets/nsbe-membership.png';
+import NSBEMembershipBenefits from '@/assets/nsbe-membership-benefits.png';
+import NSBEAdmin from '@/assets/nsbe-admin.png';
 const projectDetails = {
   'nsbe-uva-chapter-website': {
     title: 'NSBE UVA Chapter Website',
@@ -22,6 +32,17 @@ const projectDetails = {
     hasDemo: true,
     hasGithub: false,
     hasFigma: true,
+    galleryImages: [
+      { src: NSBEHomeHero, label: 'Home - Hero Section' },
+      { src: NSBEHomeCards, label: 'Home - Feature Cards' },
+      { src: NSBEHomeCommunity, label: 'Home - Community & Contact' },
+      { src: NSBEAbout, label: 'About Page' },
+      { src: NSBESponsorship, label: 'Sponsorship Page' },
+      { src: NSBEAlumni, label: 'Alumni Page' },
+      { src: NSBEMembership, label: 'Membership Page' },
+      { src: NSBEMembershipBenefits, label: 'Membership Benefits' },
+      { src: NSBEAdmin, label: 'Admin Page' },
+    ],
     developmentProcess: [
       'Conducted interviews with NSBE leadership to define requirements and key features',
       'Performed user research with chapter members to understand their needs and pain points',
@@ -215,6 +236,31 @@ const ProjectDetail = () => {
             className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
           />
         </div>
+
+        {/* Project Gallery - only show if project has gallery images */}
+        {'galleryImages' in project && project.galleryImages && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Website Pages Gallery</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {(project.galleryImages as { src: string; label: string }[]).map((image, index) => (
+                  <div key={index} className="group">
+                    <div className="relative overflow-hidden rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
+                      <img 
+                        src={image.src} 
+                        alt={image.label}
+                        className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="mt-2 text-sm text-muted-foreground text-center font-medium">{image.label}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         <div className="grid gap-8 md:grid-cols-2">
           {/* Technologies used */}
