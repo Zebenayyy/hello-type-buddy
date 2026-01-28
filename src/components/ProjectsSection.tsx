@@ -5,7 +5,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
-import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
+import Hidden from '@/assets/hidden-guide-app.png';
 
 const projects = [
   {

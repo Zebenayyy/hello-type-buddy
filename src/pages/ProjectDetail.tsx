@@ -7,7 +7,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import TopNav from '@/components/TopNav';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
-import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
+import Hidden from '@/assets/hidden-guide-app.png';
 import Cura from '@/components/Screenshot 2025-09-15 153032.png';
 
 // NSBE Website screenshots
@@ -112,8 +112,10 @@ const projectDetails = {
     status: 'In Progress',
     image: Hidden,
     githubUrl: 'https://github.com/Zebenayyy/HIDDEN_GUIDE3',
+    figmaUrl: 'https://www.figma.com/design/NJwrDmzwIFqrR5n5MKEd00/Hack-Downtown?node-id=0-1&t=wYdVjIRvzk4ZAnm4-1',
     hasDemo: false,
     hasGithub: true,
+    hasFigma: true,
     developmentProcess: [
       'Conducted market analysis to identify gaps in existing location discovery apps',
       'Defined user personas: tourists, local explorers, and content contributors',
