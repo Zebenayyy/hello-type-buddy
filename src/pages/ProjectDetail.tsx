@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import TopNav from '@/components/TopNav';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
@@ -244,20 +245,26 @@ const ProjectDetail = () => {
               <CardTitle>Website Pages Gallery</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {(project.galleryImages as { src: string; label: string }[]).map((image, index) => (
-                  <div key={index} className="group">
-                    <div className="relative overflow-hidden rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
-                      <img 
-                        src={image.src} 
-                        alt={image.label}
-                        className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <p className="mt-2 text-sm text-muted-foreground text-center font-medium">{image.label}</p>
-                  </div>
-                ))}
-              </div>
+              <Carousel className="w-full max-w-4xl mx-auto">
+                <CarouselContent>
+                  {(project.galleryImages as { src: string; label: string }[]).map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="p-1">
+                        <div className="relative overflow-hidden rounded-lg border border-border/50">
+                          <img 
+                            src={image.src} 
+                            alt={image.label}
+                            className="w-full h-[400px] object-cover object-top"
+                          />
+                        </div>
+                        <p className="mt-3 text-sm text-muted-foreground text-center font-medium">{image.label}</p>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
             </CardContent>
           </Card>
         )}
