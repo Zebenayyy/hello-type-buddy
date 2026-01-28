@@ -93,7 +93,7 @@ const ProjectsSection = () => {
           </div>
 
           {/* Third Project - Wide with asymmetric corners */}
-          <div className="col-span-6 md:col-span-5 row-span-1 rounded-[2rem] rounded-tr-[3rem] rounded-bl-[3rem] overflow-hidden relative group cursor-pointer">
+          <div className="col-span-6 md:col-span-5 row-span-2 md:row-span-1 rounded-[2rem] rounded-tr-[3rem] rounded-bl-[3rem] overflow-hidden relative group cursor-pointer">
             <Link to={`/projects/${projects[2].title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
               <img 
                 src={projects[2].image} 
