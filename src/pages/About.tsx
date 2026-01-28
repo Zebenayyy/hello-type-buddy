@@ -1,159 +1,124 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, FileText } from 'lucide-react';
+import { ArrowLeft, FileText, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TopNav from '@/components/TopNav';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
 
 const About = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+    <div className="min-h-screen bg-background">
+      <TopNav />
       
-      <div className="relative z-10 min-h-screen px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link to="/">
-              <Button variant="ghost" className="mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+      <div className="pt-32 pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Back button */}
+          <Link to="/">
+            <Button variant="ghost" className="mb-8 -ml-4">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
 
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">About Me</span>
+          {/* Header */}
+          <div className="mb-16">
+            <h1 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-none mb-4">
+              ABOUT'
+              <br />
+              ME↗ ↙
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Get to know the person behind the code
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Get to know the person behind the designs
             </p>
           </div>
 
-          {/* Profile Image and Info Section */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Profile Image - Left side */}
-            <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20 mt-32">
-              <img
-                src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
-                alt="Zebenai Melaku"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right side - Who I Am + Skills stacked */}
-            <div className="space-y-8">
-              {/* Personal Info */}
-              <Card className="animate-fade-in">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Who I Am</CardTitle>
-                  <CardDescription>A passionate developer with a love for creating</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    I love being creative and hopefully that shows throughout this website!
-                  </p>
-                  <p className="text-muted-foreground">
-                    When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Skills */}
-              <Card className="animate-fade-in" style={{animationDelay: '0.2s'}}>
-                <CardHeader>
-                  <CardTitle className="text-2xl">Skills & Technologies</CardTitle>
-                  <CardDescription>The tools I use to bring ideas to life</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">Frontend</h4>
-                      <p className="text-muted-foreground text-sm">
-                        React, TypeScript, Tailwind CSS, Next.js
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Backend</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Node.js, Python, PostgreSQL, Supabase
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Tools</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Git, VS Code, Figma, Docker
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Experience Section */}
-          <Card className="animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <CardHeader>
-              <CardTitle className="text-2xl">Experience & Background</CardTitle>
-              <CardDescription>My journey in the world of development</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">UI/UX Product Design Intern</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Present</p>
-                   <p className="text-muted-foreground">
-                 Designed and prototyped enterprise AI security platform UI in Figma, conducting user research and usability testing to create intuitive data visualization dashboards while collaborating cross-functionally on design systems and applying human-centered design principles.
-                   </p>
-                   </div>
-              <div className="space-y-6">
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Research Assistant</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
-                  <p className="text-muted-foreground">
-                    Working on the PadGlider project, focusing on human-computer interaction research and user interface design.
-                  </p>
-                </div>
-                
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Teaching Assistant</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
-                  <p className="text-muted-foreground">
-                    Supporting students in learning HCI principles and helping with coursework and projects.
-                  </p>
-                </div>
-
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Programs Chair</h4>
-                  <p className="text-muted-foreground text-sm mb-2">NSBE - Present</p>
-                  <p className="text-muted-foreground">
-                    Leading program development and coordinating events for the National Society of Black Engineers chapter.
-                  </p>
-                </div>
-
-                
+          {/* Main content grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left side - Images */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Large profile image */}
+              <div className="col-span-2 bg-card rounded-3xl overflow-hidden aspect-[4/5] shadow-lg">
+                <img
+                  src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
+                  alt="Zebenai Melaku"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
-              <div className="mt-8 pt-6 border-t border-border/50">
-  <a href={Resume} target="_blank" rel="noopener noreferrer">
-    <Button size="lg" className="w-full sm:w-auto">
-      <FileText className="w-5 h-5 mr-2" />
-      View Full Resume
-    </Button>
-  </a>
-</div>
+              {/* Skills cards */}
+              <div className="bg-primary text-primary-foreground rounded-3xl p-6 flex flex-col justify-center">
+                <h3 className="font-display font-bold text-lg mb-3">Frontend</h3>
+                <p className="text-sm opacity-80">React, TypeScript, Tailwind CSS, Next.js</p>
+              </div>
+              
+              <div className="bg-foreground text-background rounded-3xl p-6 flex flex-col justify-center">
+                <h3 className="font-display font-bold text-lg mb-3">Design</h3>
+                <p className="text-sm opacity-80">Figma, ProtoPie, User Research</p>
+              </div>
+            </div>
 
-            </CardContent>
-          </Card>
+            {/* Right side - Content */}
+            <div className="space-y-8">
+              {/* Who I Am */}
+              <div className="bg-card rounded-3xl p-8 shadow-lg">
+                <h2 className="font-display font-bold text-2xl mb-4">Who I Am</h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+                  </p>
+                  <p>
+                    I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+                  </p>
+                  <p>
+                    I love being creative and hopefully that shows throughout this website!
+                  </p>
+                  <p>
+                    When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
+                  </p>
+                </div>
+              </div>
+
+              {/* Experience */}
+              <div className="bg-card rounded-3xl p-8 shadow-lg">
+                <h2 className="font-display font-bold text-2xl mb-6">Experience</h2>
+                <div className="space-y-6">
+                  <div className="border-l-2 border-primary pl-6">
+                    <h3 className="font-bold text-lg">UI/UX Product Design Intern</h3>
+                    <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Present</p>
+                    <p className="text-muted-foreground text-sm">
+                      Designing enterprise AI security platform UI in Figma, conducting user research and usability testing.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-2 border-primary pl-6">
+                    <h3 className="font-bold text-lg">Research Assistant</h3>
+                    <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
+                    <p className="text-muted-foreground text-sm">
+                      Working on the PadGlider project, focusing on human-computer interaction research.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-2 border-primary pl-6">
+                    <h3 className="font-bold text-lg">Teaching Assistant</h3>
+                    <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
+                    <p className="text-muted-foreground text-sm">
+                      Supporting students in learning HCI principles and helping with coursework.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-border">
+                  <a href={Resume} target="_blank" rel="noopener noreferrer">
+                    <Button className="rounded-full bg-primary hover:bg-primary/90">
+                      <FileText className="w-5 h-5 mr-2" />
+                      View Full Resume
+                      <ArrowUpRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

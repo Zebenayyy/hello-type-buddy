@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Github, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TopNav from '@/components/TopNav';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
 import Hidden from '@/components/Screenshot 2025-09-15 152922.png';
@@ -49,110 +49,120 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+    <div className="min-h-screen bg-background">
+      <TopNav />
       
-      <div className="relative z-10 min-h-screen px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link to="/">
-              <Button variant="ghost" className="mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+      <div className="pt-32 pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Back button */}
+          <Link to="/">
+            <Button variant="ghost" className="mb-8 -ml-4">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
 
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">My Projects</span>
+          {/* Header */}
+          <div className="flex items-center justify-between mb-12">
+            <h1 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-none">
+              PORTFOLIO'↙
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my work and the technologies I love to use
-            </p>
+            <div className="bg-foreground text-background px-4 py-2 rounded-full text-sm font-medium">
+              2025
+            </div>
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {/* Projects Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {projects.map((project, index) => {
               const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
               return (
-                <Link key={index} to={`/projects/${projectSlug}`}>
-                  <Card className="animate-fade-in hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full" 
-                        style={{animationDelay: `${index * 0.1}s`}}>
-                    <CardHeader>
-                      <div className="mb-4">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-48 object-cover rounded-lg"
-                        />
-                      </div>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription>{project.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        {/* Tech Stack */}
-                        <div>
-                          <h4 className="font-semibold text-sm mb-2">Technologies</h4>
-                          <div className="flex flex-wrap gap-1">
-                            {project.tech.map((tech, techIndex) => (
-                              <span key={techIndex} 
-                                    className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
+                <Link 
+                  key={index} 
+                  to={`/projects/${projectSlug}`}
+                  className={`group ${index === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                >
+                  <div className={`bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all h-full ${index === 0 ? 'aspect-[16/10]' : 'aspect-square'}`}>
+                    <div className="relative h-full">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Hover content */}
+                      <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 className="text-background font-display font-bold text-xl mb-2">{project.title}</h3>
+                        <p className="text-background/80 text-sm mb-4 line-clamp-2">{project.description}</p>
+                        
+                        {/* Tech tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tech.slice(0, 3).map((tech, techIndex) => (
+                            <span key={techIndex} className="px-2 py-1 bg-background/20 text-background text-xs rounded-full">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.tech.length > 3 && (
+                            <span className="px-2 py-1 bg-background/20 text-background text-xs rounded-full">
+                              +{project.tech.length - 3}
+                            </span>
+                          )}
                         </div>
                         
-                        {/* Action Buttons */}
+                        {/* Action buttons */}
                         <div className="flex gap-2">
                           {project.hasGithub && (
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
-                              <Button variant="outline" size="sm" className="w-full">
+                            <a 
+                              href={project.github} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="flex-1"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Button variant="secondary" size="sm" className="w-full rounded-full">
                                 <Github className="w-4 h-4 mr-2" />
                                 Code
                               </Button>
                             </a>
                           )}
                           {project.hasDemo && (
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? "flex-1" : "w-full"}>
-                              <Button variant="outline" size="sm" className="w-full">
+                            <a 
+                              href={project.demo} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className={project.hasGithub ? "flex-1" : "w-full"}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Button variant="secondary" size="sm" className="w-full rounded-full">
                                 <ExternalLink className="w-4 h-4 mr-2" />
-                                Link
+                                View
                               </Button>
                             </a>
                           )}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </Link>
               );
             })}
           </div>
 
           {/* Call to Action */}
-          <div className="text-center">
-            <Card className="max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.6s'}}>
-              <CardHeader>
-                <CardTitle className="text-2xl">Interested in Working Together?</CardTitle>
-                <CardDescription>
-                  I'm always open to discussing new opportunities and exciting projects
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/#contact">
-                  <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300">
-                    Get In Touch
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+          <div className="bg-card rounded-3xl p-8 md:p-12 text-center shadow-lg">
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
+              Interested in Working Together?
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              I'm always open to discussing new opportunities and exciting projects. Let's create something amazing together!
+            </p>
+            <Link to="/#contact">
+              <Button className="rounded-full bg-primary hover:bg-primary/90 px-8">
+                Get In Touch
+                <ArrowUpRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
