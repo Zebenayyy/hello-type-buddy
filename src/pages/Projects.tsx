@@ -50,11 +50,12 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+    <div className="min-h-screen flex flex-col">
+      {/* Background decoration - only covers main content, not footer */}
+      <div className="flex-1 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10 pointer-events-none" />
       
-      <div className="relative z-10 min-h-screen px-4 py-8">
+        <div className="relative z-10 px-4 py-8">
         <div className="max-w-6xl mx-auto">
           {/* Navigation */}
           <div className="mb-8">
@@ -165,6 +166,7 @@ const Projects = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
         </div>
       </div>
       <Footer />
