@@ -33,7 +33,7 @@ const AboutSection = () => {
           </div>
 
           {/* Title Card */}
-          <div className="col-span-1 md:col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-4 md:p-6 flex flex-col justify-center">
+          <div className="col-span-1 md:col-span-2 row-span-2 md:row-span-1 rounded-2xl bg-card border border-border/50 p-4 md:p-6 flex flex-col justify-center">
             <h2 className="text-2xl md:text-4xl font-bold">
               ABOUT<br />
               <span className="text-gradient">ME</span>
