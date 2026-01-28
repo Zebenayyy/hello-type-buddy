@@ -41,11 +41,8 @@ const Index = () => {
             {/* Welcome content */}
             <div className={`text-center lg:text-left ${showContent ? 'animate-fade-in' : 'opacity-0'}`}>
               <div className="mb-6">
-                <p className="text-primary font-medium mb-2">Hi, I'm Zebenai! 👋</p>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                  <span className="text-gradient">UI/UX Designer</span>
-                  <span className="text-foreground"> & </span>
-                  <span className="text-gradient">Frontend Developer</span>
+                  <span className="text-gradient">Aspiring UI/UX Designer</span>
                 </h1>
                 <div className="text-xl md:text-2xl text-muted-foreground font-medium">
                   <TypingEffect 
