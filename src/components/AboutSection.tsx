@@ -10,7 +10,7 @@ const AboutSection = () => {
     <section id="about" className="scroll-mt-24 relative">
       <div className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
           
           {/* Profile Image - Large */}
           <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden">
