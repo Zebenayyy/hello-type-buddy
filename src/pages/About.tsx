@@ -1,214 +1,194 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, FileText } from 'lucide-react';
+import { ArrowLeft, FileText, Briefcase, GraduationCap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Resume from "@/components/Melaku_Zebenai_Resume.pdf";
 import ProtoPieLogo from "@/assets/protopie-logo.png";
+import TopNav from '@/components/TopNav';
 
 const About = () => {
+  const skills = {
+    frontend: [
+      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    ],
+    backend: [
+      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+      { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+      { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+      { name: 'Supabase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg' },
+    ],
+    design: [
+      { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'ProtoPie', icon: ProtoPieLogo },
+    ],
+    tools: [
+      { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+      { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+      { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+    ],
+  };
+
+  const experience = [
+    {
+      title: 'UI/UX Product Design Intern',
+      company: 'Hardshell',
+      period: 'Present',
+      description: 'Designed and prototyped enterprise AI security platform UI in Figma, conducting user research and usability testing to create intuitive data visualization dashboards.',
+      icon: Briefcase,
+    },
+    {
+      title: 'Research Assistant',
+      company: 'Ultimate User Interface Lab',
+      period: 'Present',
+      description: 'Working on the PadGlider project, focusing on human-computer interaction research and user interface design.',
+      icon: GraduationCap,
+    },
+    {
+      title: 'Teaching Assistant',
+      company: 'Human-Computer Interaction Course',
+      period: 'Present',
+      description: 'Supporting students in learning HCI principles and helping with coursework and projects.',
+      icon: GraduationCap,
+    },
+    {
+      title: 'Programs Chair',
+      company: 'NSBE',
+      period: 'Present',
+      description: 'Leading program development and coordinating events for the National Society of Black Engineers chapter.',
+      icon: Users,
+    },
+  ];
+
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10" />
+    <div className="min-h-screen bg-background">
+      <TopNav />
       
-      <div className="relative z-10 min-h-screen px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link to="/">
-              <Button variant="ghost" className="mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <div className="grid lg:grid-cols-5 gap-10 mb-16">
+          {/* Profile Image */}
+          <div className="lg:col-span-2">
+            <div className="sticky top-24">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
+                  alt="Zebenai Melaku"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">About Me</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Get to know the person behind the code
-            </p>
-          </div>
-
-          {/* Profile Image and Info Section */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Profile Image - Left side */}
-            <div className="w-full max-w-sm aspect-[4/5] rounded-lg overflow-hidden border-4 border-primary/20 shadow-2xl bg-gradient-to-br from-character-yellow/20 to-character-green/20 mt-32">
-              <img
-                src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
-                alt="Zebenai Melaku"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+          {/* Content */}
+          <div className="lg:col-span-3 space-y-8">
+            {/* Header */}
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">About Me</h1>
+              <p className="text-lg text-muted-foreground">
+                Get to know the person behind the code
+              </p>
             </div>
 
-            {/* Right side - Who I Am + Skills stacked */}
-            <div className="space-y-8">
-              {/* Personal Info */}
-              <Card className="animate-fade-in">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Who I Am</CardTitle>
-                  <CardDescription>A passionate developer with a love for creating</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    I love being creative and hopefully that shows throughout this website!
-                  </p>
-                  <p className="text-muted-foreground">
-                    When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
-                  </p>
-                </CardContent>
-              </Card>
+            {/* Who I Am */}
+            <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-8">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Who I Am</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Hi there! My name is Zebenai Melaku and I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
+                </p>
+                <p>
+                  I'm a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
+                </p>
+                <p>
+                  I love being creative and hopefully that shows throughout this website!
+                </p>
+                <p>
+                  When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :)
+                </p>
+              </div>
+            </div>
 
-              {/* Skills */}
-              <Card className="animate-fade-in" style={{animationDelay: '0.2s'}}>
-                <CardHeader>
-                  <CardTitle className="text-2xl">Skills & Technologies</CardTitle>
-                  <CardDescription>The tools I use to bring ideas to life</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-semibold mb-3">Frontend</h4>
-                      <div className="flex flex-wrap gap-3">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-5 h-5" />
-                          <span className="text-sm">React</span>
+            {/* Skills */}
+            <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-8">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Skills & Technologies</h2>
+              
+              <div className="space-y-6">
+                {[
+                  { label: 'Frontend', items: skills.frontend },
+                  { label: 'Backend', items: skills.backend },
+                  { label: 'Design', items: skills.design },
+                  { label: 'Tools', items: skills.tools },
+                ].map((category) => (
+                  <div key={category.label}>
+                    <h3 className="text-sm font-medium text-muted-foreground mb-3">{category.label}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((skill) => (
+                        <div 
+                          key={skill.name}
+                          className="flex items-center gap-2 px-3 py-2 bg-secondary/50 hover:bg-secondary rounded-lg transition-colors"
+                        >
+                          <img src={skill.icon} alt={skill.name} className="w-5 h-5" />
+                          <span className="text-sm font-medium">{skill.name}</span>
                         </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-5 h-5" />
-                          <span className="text-sm">TypeScript</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="w-5 h-5" />
-                          <span className="text-sm">Tailwind CSS</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-5 h-5" />
-                          <span className="text-sm">Next.js</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3">Backend</h4>
-                      <div className="flex flex-wrap gap-3">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-5 h-5" />
-                          <span className="text-sm">Node.js</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-5 h-5" />
-                          <span className="text-sm">Python</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-5 h-5" />
-                          <span className="text-sm">PostgreSQL</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" className="w-5 h-5" />
-                          <span className="text-sm">Supabase</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3">Design Tools</h4>
-                      <div className="flex flex-wrap gap-3">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="w-5 h-5" />
-                          <span className="text-sm">Figma</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src={ProtoPieLogo} alt="ProtoPie" className="w-5 h-5" />
-                          <span className="text-sm">ProtoPie</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3">Tools</h4>
-                      <div className="flex flex-wrap gap-3">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-5 h-5" />
-                          <span className="text-sm">Git</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-5 h-5" />
-                          <span className="text-sm">VS Code</span>
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/50 rounded-lg">
-                          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-5 h-5" />
-                          <span className="text-sm">Docker</span>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Experience Section */}
-          <Card className="animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <CardHeader>
-              <CardTitle className="text-2xl">Experience & Background</CardTitle>
-              <CardDescription>My journey in the world of development</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">UI/UX Product Design Intern</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Hardshell (Remote) - Present</p>
-                   <p className="text-muted-foreground">
-                 Designed and prototyped enterprise AI security platform UI in Figma, conducting user research and usability testing to create intuitive data visualization dashboards while collaborating cross-functionally on design systems and applying human-centered design principles.
-                   </p>
-                   </div>
-              <div className="space-y-6">
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Research Assistant</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Ultimate User Interface Lab - Present</p>
-                  <p className="text-muted-foreground">
-                    Working on the PadGlider project, focusing on human-computer interaction research and user interface design.
-                  </p>
+        {/* Experience Section */}
+        <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-foreground mb-8">Experience</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {experience.map((exp, index) => (
+              <div 
+                key={index}
+                className="group p-5 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <exp.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {exp.title}
+                    </h3>
+                    <p className="text-sm text-primary/80 mb-2">{exp.company} · {exp.period}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Teaching Assistant</h4>
-                  <p className="text-muted-foreground text-sm mb-2">Human-Computer Interaction Course - Present</p>
-                  <p className="text-muted-foreground">
-                    Supporting students in learning HCI principles and helping with coursework and projects.
-                  </p>
-                </div>
-
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <h4 className="font-semibold text-lg">Programs Chair</h4>
-                  <p className="text-muted-foreground text-sm mb-2">NSBE - Present</p>
-                  <p className="text-muted-foreground">
-                    Leading program development and coordinating events for the National Society of Black Engineers chapter.
-                  </p>
-                </div>
-
-                
               </div>
-              
-              <div className="mt-8 pt-6 border-t border-border/50">
-  <a href={Resume} target="_blank" rel="noopener noreferrer">
-    <Button size="lg" className="w-full sm:w-auto">
-      <FileText className="w-5 h-5 mr-2" />
-      View Full Resume
-    </Button>
-  </a>
-</div>
+            ))}
+          </div>
 
-            </CardContent>
-          </Card>
+          <div className="mt-8 pt-6 border-t border-border/50">
+            <a href={Resume} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="w-full sm:w-auto">
+                <FileText className="w-5 h-5 mr-2" />
+                View Full Resume
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">Want to work together?</p>
+          <Link to="/#contact">
+            <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all">
+              Get In Touch
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
