@@ -60,14 +60,6 @@ const ContactSection: React.FC = () => {
               Let's <span className="text-gradient">Connect</span> There
             </h2>
           </div>
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 self-start md:self-auto"
-            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Hire Me Now
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
         </div>
 
         {/* Contact Form Card */}

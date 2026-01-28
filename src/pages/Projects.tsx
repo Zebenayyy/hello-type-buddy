@@ -7,6 +7,7 @@ import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
 import Hidden from '@/assets/hidden-guide-app.png';
 import Cura from '@/components/Screenshot 2025-09-15 153032.png';
+import Footer from '@/components/Footer';
 
 const Projects = () => {
   const projects = [
@@ -166,6 +167,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
