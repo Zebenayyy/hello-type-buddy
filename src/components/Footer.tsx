@@ -9,12 +9,12 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-r from-primary to-primary/90 text-white">
-      {/* Character peeking from behind the footer */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+      {/* Character peeking from the corner of the footer */}
+      <div className="absolute -top-20 right-8 md:right-16 z-10 pointer-events-none">
         <img 
           src={footerCharacter} 
           alt="Cute character peeking"
-          className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-lg"
+          className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-lg"
         />
       </div>
       <div className="max-w-6xl mx-auto px-4 py-12">
