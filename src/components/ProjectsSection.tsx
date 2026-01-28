@@ -54,94 +54,93 @@ const ProjectsSection = () => {
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-8">
           {projects.map((project, index) => {
             const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const isEven = index % 2 === 0;
+            
             return (
-            <Link key={project.title} to={`/projects/${projectSlug}`}>
-              <Card className="group bg-card border-border/30 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer h-full overflow-hidden">
-                {/* Project preview area with overlay */}
-                <div className="h-52 relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
-                  
-                  {/* Status badge - top right */}
-                  <div className="absolute top-3 right-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-sm ${
-                      project.status === 'Live' ? 'bg-green-500/90 text-white' :
-                      project.status === 'In Progress' ? 'bg-amber-500/90 text-white' :
-                      'bg-primary/90 text-primary-foreground'
-                    }`}>
-                      {project.status}
-                    </span>
+              <Link key={project.title} to={`/projects/${projectSlug}`}>
+                <Card className={`group bg-card border-border/30 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden`}>
+                  <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    {/* Image Section */}
+                    <div className="md:w-1/2 h-64 md:h-80 relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {/* Gradient overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent via-transparent to-card/80 hidden md:block`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:hidden" />
+                      
+                      {/* Status badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm shadow-lg ${
+                          project.status === 'Live' ? 'bg-green-500/90 text-white' :
+                          project.status === 'In Progress' ? 'bg-amber-500/90 text-white' :
+                          'bg-primary/90 text-primary-foreground'
+                        }`}>
+                          {project.status}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {project.description}
+                      </p>
+                      
+                      {/* Tech stack */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* Action buttons */}
+                      <div className="flex gap-3">
+                        {project.hasGithub && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                            <Button variant="outline" className="h-11 px-6 border-border hover:border-primary/50 hover:bg-primary/5">
+                              <Github className="w-4 h-4 mr-2" />
+                              View Code
+                            </Button>
+                          </a>
+                        )}
+                        {project.hasDemo && (
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                            <Button className="h-11 px-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md hover:shadow-lg">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Live Site
+                            </Button>
+                          </a>
+                        )}
+                        {!project.hasDemo && !project.hasGithub && (
+                          <Button variant="outline" className="h-11 px-6 border-border hover:border-primary/50 hover:bg-primary/5">
+                            View Case Study
+                          </Button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                
-                <CardHeader className="pb-2 pt-5">
-                  <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg font-bold leading-snug line-clamp-2">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="space-y-4 pt-0">
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                  
-                  {/* Tech stack - more polished pills */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 4).map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-2.5 py-1 bg-primary/8 text-primary/80 rounded-full text-xs font-medium border border-primary/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 4 && (
-                      <span className="px-2.5 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
-                  
-                  {/* Action buttons - cleaner design */}
-                  <div className="flex gap-2 pt-3">
-                    {project.hasGithub && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1" onClick={(e) => e.stopPropagation()}>
-                        <Button size="sm" variant="outline" className="w-full h-10 border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
-                        </Button>
-                      </a>
-                    )}
-                    {project.hasDemo && (
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className={project.hasGithub ? 'flex-1' : 'w-full'} onClick={(e) => e.stopPropagation()}>
-                        <Button size="sm" className="w-full h-10 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md hover:shadow-lg transition-all">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Site
-                        </Button>
-                      </a>
-                    )}
-                    {!project.hasDemo && !project.hasGithub && (
-                      <Button size="sm" variant="outline" className="w-full h-10 border-border hover:border-primary/50 hover:bg-primary/5">
-                        View Case Study
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+                </Card>
+              </Link>
             );
           })}
         </div>
         
-        {/* Call to action - more prominent */}
+        {/* Call to action */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Interested in seeing more of my work?</p>
           <Link to="/projects">
