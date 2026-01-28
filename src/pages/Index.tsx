@@ -4,16 +4,16 @@ import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
 import TopNav from '@/components/TopNav';
 import AboutSection from '@/components/AboutSection';
-
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
+import MarqueeBanner from '@/components/MarqueeBanner';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const [showCharacter, setShowCharacter] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Stagger the animations
     const timer1 = setTimeout(() => setShowContent(true), 300);
     const timer2 = setTimeout(() => setShowCharacter(true), 800);
     
@@ -28,14 +28,11 @@ const Index = () => {
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-character-yellow/5 via-background to-character-green/10 -z-10" />
       
-      {/* Floating decorative elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-character-yellow/10 rounded-full blur-xl animate-bounce-gentle" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-character-green/10 rounded-full blur-xl animate-bounce-gentle" style={{animationDelay: '1s'}} />
-      
       <TopNav />
-      <section id="welcome" className="relative z-10 min-h-[80vh] flex items-center justify-center px-4 pb-20">
+      
+      {/* Hero Section */}
+      <section id="welcome" className="relative z-10 min-h-[80vh] flex items-center justify-center px-4 pb-16">
         <div className="max-w-6xl mx-auto">
-          {/* Main content grid */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Welcome content */}
@@ -79,11 +76,18 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Marquee Banner */}
+      <MarqueeBanner />
       
       <AboutSection />
       <ProjectsSection />
-      <ContactSection />
       
+      {/* Second Marquee */}
+      <MarqueeBanner items={['Web Design', 'App Design', 'Wireframe', 'Dashboard', 'Prototyping', 'User Research']} />
+      
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

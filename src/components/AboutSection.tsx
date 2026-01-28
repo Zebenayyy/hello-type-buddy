@@ -1,82 +1,88 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 const AboutSection = () => {
   return (
     <section id="about" className="scroll-mt-24 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-soft-glow/30 to-background -z-10" />
-      
-      <div className="max-w-6xl mx-auto px-4 py-20 lg:py-32">
-        <header className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Passionate about creating beautiful digital experiences
-          </p>
-        </header>
+      <div className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
+          
+          {/* Profile Image - Large */}
+          <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden">
+            <img
+              src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
+              alt="Zebenai Melaku"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
 
-        <Card className="bg-card/80 backdrop-blur-sm border-border/50 shadow-xl">
-          <CardContent className="p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Photo area */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl character-glow bg-gradient-to-br from-character-yellow/20 to-character-green/20 flex items-center justify-center">
-                    <img
-                      src="/lovable-uploads/850f16ac-9ec7-4568-8131-0c5f622cba2a.png"
-                      alt="Your profile photo"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-10 h-10 bg-character-yellow rounded-full animate-bounce-gentle" />
-                  <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-character-green rounded-full animate-bounce-gentle" style={{animationDelay: '0.5s'}} />
-                </div>
-              </div>
+          {/* Decorative Image */}
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden bg-gradient-to-br from-character-yellow/30 to-character-green/30 flex items-center justify-center">
+            <span className="text-4xl">🎨</span>
+          </div>
 
-              {/* Bio */}
-              <article className="space-y-6">
-                <div className="space-y-4">
-                  <p className="text-foreground text-xl leading-relaxed font-medium">
-                     Hi there! My name is Zebenai Melaku
-                  </p>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                 I'm currently a third-year student at the University of Virginia majoring in Computer Engineering with a passion for human-computer interactions.
- I'm an incoming Ui/UX intern at Hardshell and a Research Assistant at the Ultimate User Interface Lab working on the PadGlider project and a Teaching Assistant for the Human-Computer Interaction course. I also serve as the Programs Chair of NSBE.
-I love being creative and hopefully that shows throughout this website!
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                   When I'm not coding or researching, you'll probably find me crocheting, drawing, or volunteering for a random event and trying to be as involved as I can in my community :).
-                  </p>
-                </div>
-                
-                {/* Skills or interests */}
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {['React', 'TypeScript', 'UI/UX', 'Creative Coding'].map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Learn more button */}
-                <div className="pt-6">
-                  <Link to="/about">
-                    <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5">
-                      Learn More About Me
-                    </Button>
-                  </Link>
-                </div>
-              </article>
+          {/* Title Card */}
+          <div className="col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              ABOUT<br />
+              <span className="text-gradient">ME ✦</span>
+            </h2>
+          </div>
+
+          {/* Journey Badge */}
+          <div className="col-span-1 row-span-1 rounded-2xl bg-primary/10 border border-primary/20 p-4 flex flex-col items-center justify-center text-center">
+            <span className="text-xs text-muted-foreground mb-1">MY</span>
+            <span className="font-bold text-primary">DESIGN</span>
+            <span className="font-bold text-primary">JOURNEY</span>
+          </div>
+
+          {/* Bio Card - Spans 2 columns */}
+          <div className="col-span-2 md:col-span-2 row-span-2 rounded-2xl bg-card border border-border/50 p-6 flex flex-col justify-between">
+            <div className="space-y-3">
+              <p className="text-foreground font-semibold text-lg">
+                Hi! I'm Zebenai Melaku 👋
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                I'm a third-year Computer Engineering student at UVA passionate about human-computer interactions. I thrive on creating intuitive, visually compelling, and user-friendly digital experiences.
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                With hands-on experience in wireframing, prototyping, and user research, I design with both creativity and functionality in mind.
+              </p>
             </div>
-          </CardContent>
-        </Card>
+            <Link to="/about">
+              <Button variant="outline" size="sm" className="mt-4 group">
+                Learn More
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Skills Preview */}
+          <div className="col-span-1 row-span-1 rounded-2xl bg-gradient-to-br from-character-green/20 to-character-yellow/20 p-4 flex flex-col justify-center">
+            <div className="flex flex-wrap gap-1">
+              {['React', 'Figma', 'UI/UX'].map((skill) => (
+                <span 
+                  key={skill}
+                  className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Fun Fact */}
+          <div className="col-span-1 row-span-1 rounded-2xl bg-character-yellow/20 p-4 flex items-center justify-center">
+            <p className="text-center text-sm font-medium text-foreground">
+              🧶 I also crochet!
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
   );

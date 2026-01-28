@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Olympet from '@/components/Screenshot 2025-09-15 152846.png';
 import NSBE_Website from '@/components/Screenshot 2025-09-15 153000.png';
@@ -20,7 +19,7 @@ const projects = [
   },
   {
     title: 'Olympet: AI Educational Travel Buddy',
-    description: 'AI-powered educational travel companion with dual-interface system for children and parents, featuring high-fidelity prototypes.',
+    description: 'AI-powered educational travel companion with dual-interface system for children and parents.',
     tags: ['Figma', 'ProtoPie', 'User Research', 'AI'],
     status: 'Completed',
     image: Olympet,
@@ -30,7 +29,7 @@ const projects = [
   },
   {
     title: 'Hidden Guide: Location-Based Mobile App',
-    description: 'React Native mobile app with Firebase integration for real-time data storage, authentication, and push notifications.',
+    description: 'React Native mobile app with Firebase integration for real-time data.',
     tags: ['React Native', 'Firebase', 'Real-time Data'],
     status: 'In Progress',
     image: Hidden,
@@ -43,98 +42,103 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <section id="projects" className="scroll-mt-24 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-character-green/5 to-background -z-10" />
-      
-      <div className="max-w-5xl mx-auto px-4 py-20 lg:py-32">
-        <header className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">Projects</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and creative endeavors
-          </p>
-        </header>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.slice(0, 2).map((project) => {
-            const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-            
-            return (
-              <Link key={project.title} to={`/projects/${projectSlug}`}>
-                <div className="group bg-card rounded-2xl border border-border/30 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden h-full flex flex-col">
-                  {/* Project image */}
-                  <div className="h-48 relative overflow-hidden flex-shrink-0">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Status badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold shadow-md ${
-                        project.status === 'Live' ? 'bg-green-500 text-white' :
-                        project.status === 'In Progress' ? 'bg-amber-500 text-white' :
-                        'bg-primary text-primary-foreground'
-                      }`}>
-                        {project.status}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech stack */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.map((tag) => (
-                        <span 
-                          key={tag}
-                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    {/* Action buttons */}
-                    <div className="flex gap-2">
-                      {project.hasGithub && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <Button size="sm" variant="outline">
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </a>
-                      )}
-                      {project.hasDemo && (
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <Button size="sm">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Site
-                          </Button>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
+      <div className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
+        {/* Header */}
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              PORTFOLIO<span className="text-gradient">✦</span>
+            </h2>
+            <p className="text-muted-foreground mt-2">2024-2025</p>
+          </div>
         </div>
-        
-        {/* View All Projects */}
-        <div className="text-center mt-12">
-          <Link to="/projects">
-            <Button size="lg" className="bg-gradient-to-r from-character-green to-character-yellow text-white font-semibold hover:shadow-lg transition-all duration-300 px-8">
-              View All Projects
-            </Button>
-          </Link>
+
+        {/* Bento Grid for Projects */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[120px] md:auto-rows-[140px]">
+          
+          {/* Category Badge */}
+          <div className="col-span-1 row-span-1 rounded-2xl bg-primary/10 border border-primary/20 p-4 flex flex-col justify-center">
+            <span className="text-xs text-muted-foreground">CASE</span>
+            <span className="font-bold text-foreground">Studies</span>
+          </div>
+
+          {/* First Project - Large */}
+          <div className="col-span-1 md:col-span-2 row-span-2 rounded-2xl overflow-hidden relative group cursor-pointer">
+            <Link to={`/projects/${projects[0].title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
+              <img 
+                src={projects[0].image} 
+                alt={projects[0].title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="px-2 py-1 bg-amber-500 text-white text-xs font-semibold rounded-full mb-2 inline-block">
+                  {projects[0].status}
+                </span>
+                <h3 className="text-white font-bold text-lg">{projects[0].title}</h3>
+              </div>
+            </Link>
+          </div>
+
+          {/* Portfolio Year Card */}
+          <div className="col-span-1 row-span-2 rounded-2xl bg-gradient-to-br from-character-green to-character-yellow p-5 flex flex-col justify-between text-white">
+            <div>
+              <span className="text-2xl font-bold">2024 ✦</span>
+              <p className="text-sm opacity-90 mt-1">Portfolio</p>
+            </div>
+            <p className="text-xs opacity-80 leading-relaxed">
+              A curated collection of my design journey and development projects.
+            </p>
+          </div>
+
+          {/* Design System Badge */}
+          <div className="col-span-1 row-span-1 rounded-2xl bg-card border border-border/50 p-4 flex flex-col justify-center">
+            <span className="text-xs text-muted-foreground">DESIGN</span>
+            <span className="font-bold text-foreground">System</span>
+          </div>
+
+          {/* Second Project */}
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden relative group cursor-pointer">
+            <Link to={`/projects/${projects[1].title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
+              <img 
+                src={projects[1].image} 
+                alt={projects[1].title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+              <div className="absolute bottom-2 left-2">
+                <span className="px-2 py-0.5 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+                  {projects[1].status}
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Third Project */}
+          <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden relative group cursor-pointer">
+            <Link to={`/projects/${projects[2].title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
+              <img 
+                src={projects[2].image} 
+                alt={projects[2].title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+              <div className="absolute bottom-2 left-2">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-xs font-semibold rounded-full">
+                  {projects[2].status}
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* View All Projects Card */}
+          <div className="col-span-2 row-span-1 rounded-2xl bg-card border border-border/50 p-4 flex items-center justify-between group cursor-pointer hover:bg-secondary/50 transition-colors">
+            <Link to="/projects" className="flex items-center justify-between w-full">
+              <span className="font-bold text-foreground">PROJECTS</span>
+              <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
         </div>
       </div>
     </section>
