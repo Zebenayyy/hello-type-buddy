@@ -4,7 +4,7 @@ import CharacterSection from '@/components/CharacterSection';
 import { Button } from '@/components/ui/button';
 import TopNav from '@/components/TopNav';
 import AboutSection from '@/components/AboutSection';
-import DesignProcessSection from '@/components/DesignProcessSection';
+
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -81,7 +81,6 @@ const Index = () => {
       </section>
       
       <AboutSection />
-      <DesignProcessSection />
       <ProjectsSection />
       <ContactSection />
       
