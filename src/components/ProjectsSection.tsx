@@ -49,19 +49,13 @@ const ProjectsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold">
               PORTFOLIO<span className="text-gradient">✦</span>
             </h2>
-            <p className="text-muted-foreground mt-2">2024-2025</p>
+            <p className="text-muted-foreground mt-2">2023-2025</p>
           </div>
         </div>
 
         {/* Bento Grid for Projects */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[120px] md:auto-rows-[140px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
           
-          {/* Category Badge */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-primary/10 border border-primary/20 p-4 flex flex-col justify-center">
-            <span className="text-xs text-muted-foreground">CASE</span>
-            <span className="font-bold text-foreground">Studies</span>
-          </div>
-
           {/* First Project - Large */}
           <div className="col-span-1 md:col-span-2 row-span-2 rounded-2xl overflow-hidden relative group cursor-pointer">
             <Link to={`/projects/${projects[0].title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
@@ -78,23 +72,6 @@ const ProjectsSection = () => {
                 <h3 className="text-white font-bold text-lg">{projects[0].title}</h3>
               </div>
             </Link>
-          </div>
-
-          {/* Portfolio Year Card */}
-          <div className="col-span-1 row-span-2 rounded-2xl bg-gradient-to-br from-character-green to-character-yellow p-5 flex flex-col justify-between text-white">
-            <div>
-              <span className="text-2xl font-bold">2024 ✦</span>
-              <p className="text-sm opacity-90 mt-1">Portfolio</p>
-            </div>
-            <p className="text-xs opacity-80 leading-relaxed">
-              A curated collection of my design journey and development projects.
-            </p>
-          </div>
-
-          {/* Design System Badge */}
-          <div className="col-span-1 row-span-1 rounded-2xl bg-card border border-border/50 p-4 flex flex-col justify-center">
-            <span className="text-xs text-muted-foreground">DESIGN</span>
-            <span className="font-bold text-foreground">System</span>
           </div>
 
           {/* Second Project */}
